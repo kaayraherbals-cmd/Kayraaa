@@ -1,0 +1,88 @@
+/* Kaayra AI (customer assistant). Uses the existing tokens only: no new colours, fonts or radii. */
+.kai { position: fixed; z-index: 80; right: max(1rem, env(safe-area-inset-right, 0px)); bottom: max(1rem, env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; align-items: flex-end; gap: 0.65rem; }
+.kai-launch { display: inline-flex; align-items: center; gap: 0.55rem; min-height: var(--tap); padding: 0 1.15rem 0 1rem; font: inherit; font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.02em; color: var(--cream); background: var(--forest-deep); border: 1px solid var(--gold); border-radius: 999px; box-shadow: var(--shadow-overlay); cursor: pointer; transition: transform var(--dur) var(--ease), background var(--dur) var(--ease); }
+.kai-launch svg { color: var(--gold-light); }
+.kai-launch:hover { transform: translateY(-1px); background: var(--forest); }
+.kai-launch:focus-visible, .kai-icon:focus-visible, .kai-chip:focus-visible, .kai-send:focus-visible, .kai-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+.kai-panel { width: min(26rem, calc(100vw - 2rem)); height: min(40rem, calc(100dvh - 6rem)); display: flex; flex-direction: column; background: var(--cream); color: var(--ink); border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow-overlay); overflow: hidden; }
+.kai-head { display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 0.9rem 0.85rem 1rem; background: var(--forest-deep); color: var(--cream); border-bottom: 1px solid var(--gold); }
+.kai-avatar { flex: none; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; font-family: var(--display); font-size: 1.15rem; color: var(--forest-deep); background: var(--gold-light); border-radius: 50%; }
+.kai-title { flex: 1; min-width: 0; }
+.kai-title strong { display: block; font-family: var(--display); font-size: 1.05rem; font-weight: 500; line-height: 1.2; }
+.kai-title span { display: block; font-size: var(--fs-small); line-height: 1.3; color: var(--muted-on-dark); }
+.kai-icon { flex: none; width: var(--tap); height: var(--tap); margin: -0.4rem 0; background: none; border: 0; color: inherit; font-size: 1.4rem; line-height: 1; cursor: pointer; opacity: 0.85; }
+.kai-icon:hover { opacity: 1; }
+
+.kai-log { position: relative; flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: 1rem; display: flex; flex-direction: column; gap: 0.9rem; background: var(--parchment); scroll-behavior: smooth; }
+.kai-intro { padding: 0.25rem 0 0; }
+.kai-hello { margin: 0 0 0.25rem; font-family: var(--display); font-size: 1.4rem; line-height: 1.2; color: var(--forest-deep); }
+.kai-sub { margin: 0 0 1rem; color: var(--muted); }
+.kai-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.kai-intro .kai-chips { flex-direction: column; align-items: stretch; }
+.kai-chip { padding: 0.55rem 0.8rem; min-height: 2.5rem; font: inherit; font-size: var(--fs-small); text-align: left; color: var(--forest-deep); background: var(--cream); border: 1px solid var(--line-strong); border-radius: 999px; cursor: pointer; transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease); }
+.kai-intro .kai-chip { border-radius: var(--radius-md); }
+.kai-chip:hover { background: var(--sand); border-color: var(--gold-text); }
+.kai-chips--row { padding-top: 0.1rem; }
+
+.kai-msg { display: flex; flex-direction: column; gap: 0.5rem; max-width: 100%; animation: kai-rise 0.25s var(--ease) both; }
+.kai-msg--user { align-items: flex-end; }
+.kai-bubble { margin: 0; padding: 0.65rem 0.9rem; border-radius: var(--radius-md); overflow-wrap: anywhere; }
+.kai-msg--user .kai-bubble { max-width: 88%; color: var(--cream); background: var(--forest-deep); white-space: pre-wrap; }
+.kai-msg--assistant .kai-bubble { align-self: flex-start; max-width: 100%; background: var(--cream); border: 1px solid var(--line); }
+.kai-bubble p { margin: 0; }
+.kai-bubble p + p, .kai-bubble p + ul, .kai-bubble ul + p { margin-top: 0.5rem; }
+.kai-bubble ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.25rem; }
+.kai-bubble strong { color: var(--forest-deep); }
+
+.kai-cards { display: grid; gap: 0.6rem; }
+.kai-card { min-width: 0; }
+/* Recommendations are compact in the chat: small photo on the left, name, pack, price and the card's own action on the right. */
+.kai-card .pcard { flex-direction: row; align-items: stretch; gap: 0.75rem; padding: 0.6rem; background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius-md); }
+.kai-card .pcard-media { flex: 0 0 4.75rem; align-self: flex-start; }
+.kai-card .pcard-body { flex: 1; min-width: 0; gap: 0.15rem; padding-top: 0; }
+.kai-card .pcard-body h3 { font-size: 1rem; }
+.kai-card .pcard-excerpt, .kai-card .pcard-alt { display: none; }
+.kai-card .pcard-row { margin: 0.2rem 0 0.5rem; }
+.kai-card .pcard-price { font-size: 1.05rem; }
+.kai-help { margin: 0; font-size: var(--fs-small); color: var(--muted); }
+
+.kai-wait { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--muted); font-size: var(--fs-small); }
+.kai-dots { display: inline-flex; gap: 0.25rem; }
+.kai-dots i { width: 0.4rem; height: 0.4rem; border-radius: 50%; background: var(--gold-text); animation: kai-pulse 1.1s ease-in-out infinite; }
+.kai-dots i:nth-child(2) { animation-delay: 0.15s; }
+.kai-dots i:nth-child(3) { animation-delay: 0.3s; }
+.kai-link { align-self: flex-start; padding: 0.25rem 0; min-height: 1.75rem; font: inherit; font-size: var(--fs-small); color: var(--gold-text); text-decoration: underline; text-underline-offset: 0.2em; background: none; border: 0; cursor: pointer; }
+.kai-error { padding: 0.7rem 0.9rem; font-size: var(--fs-small); color: var(--bad); background: var(--cream); border: 1px solid var(--bad); border-radius: var(--radius-md); }
+.kai-error p { margin: 0 0 0.25rem; }
+
+.kai-form { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; align-items: end; padding: 0.7rem 0.9rem calc(0.7rem + env(safe-area-inset-bottom, 0px)); background: var(--cream); border-top: 1px solid var(--line); }
+.kai-form textarea { width: 100%; min-height: var(--tap); max-height: 7rem; resize: none; padding: 0.65rem 0.8rem; font: inherit; font-size: 1rem; line-height: 1.4; color: inherit; background: var(--white); border: 1px solid var(--line-strong); border-radius: var(--radius-md); }
+.kai-form textarea:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+.kai-send { width: var(--tap); height: var(--tap); display: grid; place-items: center; color: var(--cream); background: var(--forest-deep); border: 0; border-radius: var(--radius-md); cursor: pointer; transition: background var(--dur) var(--ease); }
+.kai-send:hover:not(:disabled) { background: var(--forest); }
+.kai-send:disabled { opacity: 0.4; cursor: not-allowed; }
+.kai-count { position: absolute; right: calc(var(--tap) + 1.4rem); top: 0.1rem; font-size: var(--fs-small); color: var(--muted); }
+
+/* Phones: the panel becomes a sheet that fills the screen above the keyboard; the launcher hides while it is open (the header has Close). */
+@media (max-width: 40rem) {
+  .kai--open { inset: 0; right: 0; bottom: 0; padding: 0; align-items: stretch; background: rgba(9, 35, 28, 0.45); justify-content: flex-end; gap: 0; }
+  .kai--open .kai-launch { display: none; }
+  .kai--open .kai-panel { width: 100%; height: min(100dvh - 1rem, 46rem); border-radius: var(--radius-md) var(--radius-md) 0 0; border-bottom: 0; }
+}
+@keyframes kai-pulse { 0%, 80%, 100% { opacity: 0.25; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-0.2rem); } }
+@keyframes kai-rise { from { opacity: 0; transform: translateY(0.4rem); } }
+@media (prefers-reduced-motion: reduce) { .kai-msg, .kai-dots i { animation: none; } .kai-log { scroll-behavior: auto; } .kai-launch { transition: none; } }
+@media (prefers-reduced-motion: no-preference) { .kai-panel { animation: kai-in var(--dur) var(--ease) both; } @keyframes kai-in { from { opacity: 0; transform: translateY(0.5rem); } } }
+/* The "Concept render" label stays (it is a transparency note), but as a thin strip along the foot of the small photo. */
+.kai-card .concept-tag { left: 0; right: 0; top: auto; bottom: 0; padding: 0.15rem 0.2rem; font-size: 0.625rem; line-height: 1.15; text-align: center; border-radius: 0; }
+
+/* Real order details, shown from the database rather than written by the assistant */
+.kai-orders { display: grid; gap: 0.6rem; margin-top: 0.5rem; }
+.kai-order { border: 1px solid var(--line, rgba(0, 0, 0, 0.12)); border-radius: 12px; padding: 0.75rem 0.9rem; background: var(--paper, #fff); font-size: var(--fs-small); }
+.kai-order header { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; margin-bottom: 0.4rem; }
+.kai-order-status { font-weight: 600; color: var(--forest, inherit); }
+.kai-order dl { margin: 0 0 0.5rem; display: grid; gap: 0.2rem; }
+.kai-order dl div { display: flex; justify-content: space-between; gap: 0.75rem; }
+.kai-order dt { color: var(--muted); }
+.kai-order dd { margin: 0; text-align: right; }

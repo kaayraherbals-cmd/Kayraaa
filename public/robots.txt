@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin
+Disallow: /login
+Disallow: /signup
+Disallow: /account
+Disallow: /report-a-problem
+Disallow: /product-shell
+
+Sitemap: __SITE_URL__/sitemap.xml

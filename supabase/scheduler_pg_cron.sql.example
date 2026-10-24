@@ -1,0 +1,30 @@
+-- EXAMPLE ONLY. NOT RUN, NOT VERIFIED. Replace the two placeholders, then review before running on the STAGING project first.
+-- Purpose: call the two secret-protected endpoints on a short schedule without depending on the Vercel plan's cron limits.
+-- Supabase runs pg_cron (scheduling) and pg_net (HTTP from the database). Check in Dashboard > Database > Extensions that both are
+-- available on your Supabase plan before relying on this.
+--
+-- 1. The shared secret lives in Supabase Vault, not in this file. It must equal the CRON_SECRET set in Vercel.
+--      select vault.create_secret('<the same value as Vercel CRON_SECRET>', 'kaayra_cron_secret');
+-- 2. Schedules. Time-sensitive work (payment confirmation mail, retries) every minute; stock-hold and payment reconciliation every 5.
+create extension if not exists pg_cron;
+create extension if not exists pg_net;
+
+select cron.schedule('kaayra-outbox', '* * * * *', $$
+  select net.http_get(
+    url := 'https://<STAGING-SITE-HOST>/api/checkout/outbox',
+    headers := jsonb_build_object('Authorization', 'Bearer ' || (select decrypted_secret from vault.decrypted_secrets where name = 'kaayra_cron_secret')),
+    timeout_milliseconds := 20000);
+$$);
+
+select cron.schedule('kaayra-reconcile', '*/5 * * * *', $$
+  select net.http_get(
+    url := 'https://<STAGING-SITE-HOST>/api/checkout/reconcile',
+    headers := jsonb_build_object('Authorization', 'Bearer ' || (select decrypted_secret from vault.decrypted_secrets where name = 'kaayra_cron_secret')),
+    timeout_milliseconds := 20000);
+$$);
+
+-- Monitoring (run by hand or from a dashboard):
+--   select jobname, status, start_time, return_message from cron.job_run_details order by start_time desc limit 20;   -- did the scheduler fire
+--   select status, count(*), min(created_at) from net._http_response group by 1;                                       -- what the endpoints answered
+--   select public.email_outbox_stats();                                                                                 -- queued, dead, oldest queued minutes
+-- Stop: select cron.unschedule('kaayra-outbox'); select cron.unschedule('kaayra-reconcile');

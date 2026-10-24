@@ -1,0 +1,50 @@
+[
+  {
+    "path": "/login",
+    "title": "Sign in | Kaayra Herbals"
+  },
+  {
+    "path": "/signup",
+    "title": "Create an account | Kaayra Herbals"
+  },
+  {
+    "path": "/account",
+    "title": "Your account | Kaayra Herbals"
+  },
+  {
+    "path": "/forgot-password",
+    "title": "Reset your password | Kaayra Herbals"
+  },
+  {
+    "path": "/set-password",
+    "title": "Choose a password | Kaayra Herbals"
+  },
+  {
+    "path": "/report-a-problem",
+    "title": "Report a problem | Kaayra Herbals"
+  },
+  {
+    "path": "/subscription",
+    "title": "Launch list | Kaayra Herbals"
+  },
+  {
+    "path": "/bag",
+    "title": "Your bag | Kaayra Herbals"
+  },
+  {
+    "path": "/checkout",
+    "title": "Checkout | Kaayra Herbals"
+  },
+  {
+    "path": "/wishlist",
+    "title": "Your wishlist | Kaayra Herbals"
+  },
+  {
+    "path": "/bundles",
+    "title": "Bundles | Kaayra Herbals"
+  },
+  {
+    "path": "/track-order",
+    "title": "Your orders | Kaayra Herbals"
+  }
+]

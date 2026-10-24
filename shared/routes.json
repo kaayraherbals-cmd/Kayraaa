@@ -1,0 +1,95 @@
+[
+  {
+    "path": "/",
+    "title": "Kaayra Herbals | Official Ayurvedic Wellness Brand",
+    "description": "Kaayra Herbals is a new Ayurvedic wellness company in Varanasi, India. Our first herbal formulations are in development and nothing is for sale yet."
+  },
+  {
+    "path": "/our-story",
+    "title": "Our Story | Kaayra Herbals",
+    "description": "Why Kaayra Herbals is taking its time: a new Indian Ayurvedic wellness company building carefully before it sells anything."
+  },
+  {
+    "path": "/founders",
+    "title": "Founders | Kaayra Herbals",
+    "description": "Meet the founder, CEO and co-founders of Kaayra Herbals, a new Ayurvedic wellness company in Varanasi, India: their qualifications and how to reach them."
+  },
+  {
+    "path": "/our-approach",
+    "title": "How We Work | Kaayra Herbals",
+    "description": "How Kaayra works: sourcing principles, review steps and what \"in development\" means. Nothing is approved or for sale yet."
+  },
+  {
+    "path": "/collection",
+    "title": "Products | Kaayra Herbals",
+    "description": "Formulations in development at Kaayra Herbals. Previews only; nothing is for sale."
+  },
+  {
+    "path": "/ingredients",
+    "title": "Ingredient Library | Kaayra Herbals",
+    "description": "A searchable educational reference to Ayurvedic botanicals: botanical names, plant parts and identity notes. No health claims."
+  },
+  {
+    "path": "/quality-and-transparency",
+    "title": "Quality and Transparency | Kaayra Herbals",
+    "description": "How Kaayra intends to earn trust: ingredient identity, real test reports and plain limits. No certifications or results are claimed yet."
+  },
+  {
+    "path": "/journal",
+    "title": "Journal | Kaayra Herbals",
+    "description": "Educational reading on Ayurveda, ingredients and responsible product development. Information only, not medical advice."
+  },
+  {
+    "path": "/journal/traditional-use-and-clinical-evidence",
+    "title": "Traditional use and clinical evidence | Kaayra Herbals",
+    "description": "How to tell a traditional-use statement from a clinical finding, with ashwagandha as a worked example and links to the NIH sources.",
+    "type": "article",
+    "date": "2026-10-22"
+  },
+  {
+    "path": "/journal/reading-an-ayurvedic-label",
+    "title": "Reading an Ayurvedic label | Kaayra Herbals",
+    "description": "What an ingredient list can tell you, what it cannot, and the questions worth asking about any herbal product.",
+    "type": "article",
+    "date": "2026-10-14"
+  },
+  {
+    "path": "/journal/prakriti-a-traditional-idea",
+    "title": "Prakriti: a traditional idea, not a diagnosis | Kaayra Herbals",
+    "description": "A plain introduction to Prakriti in Ayurveda, and why an online quiz cannot replace a qualified practitioner.",
+    "type": "article",
+    "date": "2026-10-14"
+  },
+  {
+    "path": "/journal/from-classical-text-to-formulation",
+    "title": "From classical text to formulation | Kaayra Herbals",
+    "description": "The questions we ask when a classical Ayurvedic preparation is considered for a modern product.",
+    "type": "article",
+    "date": "2026-10-14"
+  },
+  {
+    "path": "/product-development",
+    "title": "Development Status | Kaayra Herbals",
+    "description": "Where Kaayra Herbals formulations stand: what has been done, what still has to happen, and what is not yet claimed. Nothing is for sale."
+  },
+  {
+    "path": "/contact",
+    "title": "Contact | Kaayra Herbals",
+    "description": "Contact Kaayra Herbals for business enquiries and questions."
+  },
+  {
+    "path": "/privacy",
+    "title": "Privacy Policy | Kaayra Herbals",
+    "description": "How Kaayra Herbals handles launch-list sign-ups and website data."
+  },
+  {
+    "path": "/medical-disclaimer",
+    "title": "Medical Disclaimer | Kaayra Herbals",
+    "description": "Kaayra Herbals provides information, not medical advice. Read how to use the information on this website responsibly."
+  },
+  {
+    "path": "/legal",
+    "title": "Terms and Disclaimer | Kaayra Herbals",
+    "description": "Website terms, educational-content disclaimer and product status for Kaayra Herbals."
+  }
+]

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 370" role="img" aria-label="Capsule container label: 30 count">
+<title>Capsule container label: 30 count</title><desc>Flat label layout. Net quantity zone reserved for 30 capsules. Layout zones only. No composition, licence or warning text has been written: these must come from approved sources.</desc>
+<rect width="420" height="370" fill="#fff"/>
+<text x="16" y="24" font-family="Cormorant Garamond, Georgia, serif" font-size="20" fill="#173A2D">Capsule container label: 30 count</text>
+<text x="16" y="42" font-family="Manrope, Arial, sans-serif" font-size="10" fill="#252B27">Flat label layout. Net quantity zone reserved for 30 capsules.</text>
+<g transform="translate(0,52)"><rect x="0" y="0" width="420" height="300" fill="#F7F5EF"/>
+<rect x="10" y="10" width="400" height="280" rx="4" fill="none" stroke="#173A2D" stroke-width="1.5"/>
+<rect x="10" y="10" width="400" height="34" rx="4" fill="#173A2D"/>
+<rect x="20" y="15" width="110" height="24" rx="3" fill="none" stroke="#F7F5EF" stroke-width="1" stroke-dasharray="4 3"/><text x="75.0" y="31.0" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="10" fill="#F7F5EF">LOGO</text>
+<rect x="270" y="15" width="130" height="24" rx="3" fill="none" stroke="#F7F5EF" stroke-width="1" stroke-dasharray="4 3"/><text x="335.0" y="31.0" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="10" fill="#F7F5EF">DOSAGE FORM</text>
+<rect x="20" y="56" width="380" height="44" rx="3" fill="#A9BBA655" stroke="#173A2D" stroke-width="1" stroke-dasharray="4 3"/><text x="210.0" y="82.0" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="16" fill="#173A2D">PRODUCT NAME</text>
+<rect x="20" y="108" width="185.0" height="30" rx="3" fill="none" stroke="#A88452" stroke-width="1" stroke-dasharray="4 3"/><text x="112.5" y="127.0" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="10" fill="#A88452">NET QUANTITY</text>
+<rect x="215.0" y="108" width="185.0" height="30" rx="3" fill="none" stroke="#A88452" stroke-width="1" stroke-dasharray="4 3"/><text x="307.5" y="127.0" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="9" fill="#A88452">APPLICABLE LICENCE DETAILS</text>
+<rect x="20" y="146" width="380" height="56" rx="3" fill="none" stroke="#A88452" stroke-width="1" stroke-dasharray="4 3"/><text x="210.0" y="178.0" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="11" fill="#A88452">APPROVED COMPOSITION</text>
+<rect x="20" y="210" width="185.0" height="34" rx="3" fill="none" stroke="#A88452" stroke-width="1" stroke-dasharray="4 3"/><text x="112.5" y="231.0" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="9" fill="#A88452">MANUFACTURER INFORMATION</text>
+<rect x="215.0" y="210" width="185.0" height="34" rx="3" fill="none" stroke="#A88452" stroke-width="1" stroke-dasharray="4 3"/><text x="307.5" y="231.0" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="10" fill="#A88452">REQUIRED WARNINGS</text>
+<rect x="20" y="252" width="120" height="26" rx="3" fill="none" stroke="#A88452" stroke-width="1" stroke-dasharray="4 3"/><text x="78.33333333333334" y="269.0" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="9" fill="#A88452">BATCH NO.</text>
+<rect x="150" y="252" width="120" height="26" rx="3" fill="none" stroke="#A88452" stroke-width="1" stroke-dasharray="4 3"/><text x="205.00000000000003" y="269.0" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="9" fill="#A88452">MFG DATE</text>
+<rect x="280" y="252" width="120" height="26" rx="3" fill="none" stroke="#A88452" stroke-width="1" stroke-dasharray="4 3"/><text x="331.6666666666667" y="269.0" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="9" fill="#A88452">EXPIRY DATE</text></g>
+<rect x="0" y="344" width="420" height="26" fill="#A88452"/><text x="210.0" y="361" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#F7F5EF">CONCEPT — NOT FOR COMMERCIAL USE</text>
+</svg>

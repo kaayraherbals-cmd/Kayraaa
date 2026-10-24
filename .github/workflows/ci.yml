@@ -1,0 +1,108 @@
+# Phase 7 Step 2.5 CI (revised in V5 Phase 2). STILL NOT YET RUN on GitHub (it was written where no network was available). It gives the baseline commands and the database
+# self-tests a network-enabled place to run. Needs no secrets. Uses a throw-away Postgres container, never a real Supabase project.
+name: ci
+on:
+  push:
+  pull_request:
+
+jobs:
+  app:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version-file: .nvmrc, cache: npm }
+      # Fails with a readable list if package-lock.json and package.json disagree (offline check, no registry needed).
+      - run: npm run check:lockfile
+      # Clean install from the lockfile. Fails if the lockfile is out of sync. Never replace with `npm install`.
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      # Production build. Without VERCEL_ENV=production the prerender step uses a placeholder site URL and only warns.
+      - run: npm run build
+
+  ui-check:
+    # Added in V5 Phase 2 (follow-up). NOT YET RUN on GitHub. Needs a runner with internet access for the Chromium download.
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version-file: .nvmrc, cache: npm }
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install playwright
+      - run: python3 -m playwright install --with-deps chromium
+      # scripts/ui-check.py prints findings but always exits 0, so the log is checked here instead of changing the script.
+      - name: Responsive UI check
+        run: |
+          npm run ui:check 2>&1 | tee ui-check.txt
+          ! grep -q "  ISSUE " ui-check.txt
+          grep -q "failed: \[\]" ui-check.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: ui-check-results, path: test-results/, retention-days: 7 }
+
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version-file: .nvmrc, cache: npm }
+      - run: npm ci
+      # Packages that ship to customers. High or critical advisories here FAIL the build.
+      - name: npm audit (runtime dependencies, blocking)
+        run: npm audit --omit=dev --audit-level=high
+      # Dev and build tooling. Known open advisories (docs/PHASE7_STEP31_TESTING.md) need major upgrades, so this step is
+      # reported but does not fail the run. The full report is printed in the log and on the run summary.
+      - name: npm audit (all dependencies, reported)
+        continue-on-error: true
+        run: |
+          npm audit --audit-level=high 2>&1 | tee audit-all.txt
+          status=${PIPESTATUS[0]}
+          { echo '### npm audit (all dependencies)'; echo '```'; tail -n 40 audit-all.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          exit $status
+
+  database:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env: { POSTGRES_PASSWORD: postgres }
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
+      PGOPTIONS: '--client-min-messages=notice'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install psql
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - name: Stand in for the parts of Supabase the migrations expect
+        run: |
+          psql "$DATABASE_URL" -v ON_ERROR_STOP=1 <<'SQL'
+          create role anon nologin;
+          create role authenticated nologin;
+          create role service_role nologin bypassrls;
+          create schema storage;
+          create table storage.buckets (id text primary key, name text, public boolean, file_size_limit bigint, allowed_mime_types text[]);
+          SQL
+      - name: Apply migrations in the documented order (docs/DATABASE_MIGRATIONS.md)
+        run: |
+          for f in launch_subscribers email_outbox launch_optin auth_members issues roles_mfa_audit products products_seed products_catalog variants_gallery hsn_3004 inventory_orders refunds payments carts checkout payments_checkout shipments email_outbox_v2 rate_limits; do
+            echo "== $f"; psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -q -f "supabase/$f.sql"
+          done
+      - name: Self-tests (each rolls back; a failure raises an error)
+        run: |
+          for f in phase3_selftest refunds_selftest payments_selftest checkout_selftest payments_checkout_selftest shipments_selftest email_outbox_selftest rate_limits_selftest; do
+            echo "== $f"; psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f "supabase/$f.sql" 2>&1 | tee /tmp/$f.log
+            grep -q "PASS" /tmp/$f.log
+          done
+      - name: Concurrency tests
+        run: ./supabase/concurrency_test.sh

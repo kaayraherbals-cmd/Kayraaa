@@ -1,0 +1,762 @@
+{
+ "pages": [
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [
+    "INPUT"
+   ],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "home",
+   "width": 360,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "collection",
+   "width": 360,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "product",
+   "width": 360,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "product-unavailable",
+   "width": 360,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "bag",
+   "width": 360,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "checkout",
+   "width": 360,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "account",
+   "width": 360,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "orders",
+   "width": 360,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "order-detail",
+   "width": 360,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "our-story",
+   "width": 360,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "journal",
+   "width": 360,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "login",
+   "width": 360,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [
+    "INPUT"
+   ],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "home",
+   "width": 390,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "collection",
+   "width": 390,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "product",
+   "width": 390,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "product-unavailable",
+   "width": 390,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "bag",
+   "width": 390,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "checkout",
+   "width": 390,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "account",
+   "width": 390,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "orders",
+   "width": 390,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "order-detail",
+   "width": 390,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "our-story",
+   "width": 390,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "journal",
+   "width": 390,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "login",
+   "width": 390,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [
+    "INPUT"
+   ],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "home",
+   "width": 768,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "collection",
+   "width": 768,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "product",
+   "width": 768,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "product-unavailable",
+   "width": 768,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "bag",
+   "width": 768,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "checkout",
+   "width": 768,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "account",
+   "width": 768,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "orders",
+   "width": 768,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "order-detail",
+   "width": 768,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "our-story",
+   "width": 768,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "journal",
+   "width": 768,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "login",
+   "width": 768,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [
+    "INPUT"
+   ],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "home",
+   "width": 1024,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "collection",
+   "width": 1024,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "product",
+   "width": 1024,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "product-unavailable",
+   "width": 1024,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "bag",
+   "width": 1024,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "checkout",
+   "width": 1024,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "account",
+   "width": 1024,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "orders",
+   "width": 1024,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "order-detail",
+   "width": 1024,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "our-story",
+   "width": 1024,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "journal",
+   "width": 1024,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "login",
+   "width": 1024,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [
+    "INPUT"
+   ],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "home",
+   "width": 1440,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "collection",
+   "width": 1440,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "product",
+   "width": 1440,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "product-unavailable",
+   "width": 1440,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "bag",
+   "width": 1440,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "checkout",
+   "width": 1440,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "account",
+   "width": 1440,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "orders",
+   "width": 1440,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "order-detail",
+   "width": 1440,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "our-story",
+   "width": 1440,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "journal",
+   "width": 1440,
+   "consoleErrors": []
+  },
+  {
+   "overflowX": false,
+   "wide": [],
+   "smallTargets": [],
+   "imgsWithoutAlt": 0,
+   "h1Count": 1,
+   "bodyFontPx": 16,
+   "page": "login",
+   "width": 1440,
+   "consoleErrors": []
+  }
+ ],
+ "interactions": [
+  {
+   "w": 360,
+   "check": "mobile menu opens, aria-expanded",
+   "ok": true
+  },
+  {
+   "w": 360,
+   "check": "Escape closes menu and refocuses toggle",
+   "ok": true
+  },
+  {
+   "w": 360,
+   "check": "search dialog shows a matching product",
+   "ok": true
+  },
+  {
+   "w": 360,
+   "check": "Escape closes search",
+   "ok": true
+  },
+  {
+   "w": 360,
+   "check": "collection filter by form narrows list",
+   "ok": true
+  },
+  {
+   "w": 360,
+   "check": "PIN check reports delivery + rate",
+   "ok": true
+  },
+  {
+   "w": 360,
+   "check": "PIN check reports not serviceable",
+   "ok": true
+  },
+  {
+   "w": 360,
+   "check": "sticky mobile buy bar visible after scrolling past controls",
+   "ok": true
+  },
+  {
+   "w": 360,
+   "check": "sticky bar hidden while main controls visible",
+   "ok": true
+  },
+  {
+   "w": 360,
+   "check": "Add to bag opens bag drawer with the item",
+   "ok": true
+  },
+  {
+   "w": 1440,
+   "check": "search dialog shows a matching product",
+   "ok": true
+  },
+  {
+   "w": 1440,
+   "check": "Escape closes search",
+   "ok": true
+  },
+  {
+   "w": 1440,
+   "check": "collection filter by form narrows list",
+   "ok": true
+  },
+  {
+   "w": 1440,
+   "check": "PIN check reports delivery + rate",
+   "ok": true
+  },
+  {
+   "w": 1440,
+   "check": "PIN check reports not serviceable",
+   "ok": true
+  },
+  {
+   "w": 1440,
+   "check": "Add to bag opens bag drawer with the item",
+   "ok": true
+  },
+  {
+   "w": 1440,
+   "check": "reduced motion: no running animations > 5ms, reveal content visible",
+   "ok": true,
+   "detail": "running=0"
+  }
+ ]
+}
