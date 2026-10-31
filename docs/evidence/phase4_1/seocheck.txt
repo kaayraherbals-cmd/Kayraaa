@@ -1,0 +1,7 @@
+
+> kaayra-herbals@1.0.0 seo:check
+> node scripts/seo-check.mjs
+
+[seo-check] 17 public routes, 14 private shells, 17 sitemap URLs checked against https://kaayraherbals.com
+[seo-check] note: FAQ: 11 visible, 11 in FAQPage JSON-LD, 11 in faq.json, identical.
+[seo-check] OK

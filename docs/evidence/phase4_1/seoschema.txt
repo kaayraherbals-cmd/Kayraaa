@@ -1,0 +1,98 @@
+
+> kaayra-herbals@1.0.0 seo:schema
+> node --test scripts/structured-data.check.mjs
+
+TAP version 13
+# Subtest: every graph is valid JSON and round-trips
+ok 1 - every graph is valid JSON and round-trips
+  ---
+  duration_ms: 2.252409
+  type: 'test'
+  ...
+# Subtest: no duplicate @id inside a page, and every @id reference resolves inside the same graph
+ok 2 - no duplicate @id inside a page, and every @id reference resolves inside the same graph
+  ---
+  duration_ms: 0.809815
+  type: 'test'
+  ...
+# Subtest: exactly one Organization with the stable @id wherever one appears, identical identity facts everywhere
+ok 3 - exactly one Organization with the stable @id wherever one appears, identical identity facts everywhere
+  ---
+  duration_ms: 0.476992
+  type: 'test'
+  ...
+# Subtest: Instagram: the configured account is the only social profile, as a clean URL
+ok 4 - Instagram: the configured account is the only social profile, as a clean URL
+  ---
+  duration_ms: 0.392472
+  type: 'test'
+  ...
+# Subtest: three founders: approved names and roles, linked to the Organization both ways
+ok 5 - three founders: approved names and roles, linked to the Organization both ways
+  ---
+  duration_ms: 0.650378
+  type: 'test'
+  ...
+# Subtest: founder structured data carries no qualification, contact detail or credential
+ok 6 - founder structured data carries no qualification, contact detail or credential
+  ---
+  duration_ms: 0.464972
+  type: 'test'
+  ...
+# Subtest: articles: Organization is author and publisher, headline and date match the page, nothing invented
+ok 7 - articles: Organization is author and publisher, headline and date match the page, nothing invented
+  ---
+  duration_ms: 0.53823
+  type: 'test'
+  ...
+# Subtest: no Offer, Product, Review, Rating, price or availability markup anywhere (pre-launch status preserved)
+ok 8 - no Offer, Product, Review, Rating, price or availability markup anywhere (pre-launch status preserved)
+  ---
+  duration_ms: 0.357978
+  type: 'test'
+  ...
+# Subtest: WebSite entity matches the brand and points at the Organization
+ok 9 - WebSite entity matches the brand and points at the Organization
+  ---
+  duration_ms: 0.754872
+  type: 'test'
+  ...
+# Subtest: home FAQ markup keeps every existing question and answer exactly
+ok 10 - home FAQ markup keeps every existing question and answer exactly
+  ---
+  duration_ms: 0.52131
+  type: 'test'
+  ...
+# Subtest: brand facts agree: config, home meta, llms files and route text use the same name, entity, location and date
+ok 11 - brand facts agree: config, home meta, llms files and route text use the same name, entity, location and date
+  ---
+  duration_ms: 0.43833
+  type: 'test'
+  ...
+# Subtest: home FAQPage markup has exactly the 11 priority questions, in order, each with a non-empty answer
+ok 12 - home FAQPage markup has exactly the 11 priority questions, in order, each with a non-empty answer
+  ---
+  duration_ms: 0.255467
+  type: 'test'
+  ...
+# Subtest: FAQ markup keeps the approval disclaimer and makes no certification, rating or health claim
+ok 13 - FAQ markup keeps the approval disclaimer and makes no certification, rating or health claim
+  ---
+  duration_ms: 0.299441
+  type: 'test'
+  ...
+# Subtest: FAQPage appears on the home page only, and no page has more than one
+ok 14 - FAQPage appears on the home page only, and no page has more than one
+  ---
+  duration_ms: 0.138059
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 290.320268

@@ -1,0 +1,43 @@
+/* Customer reviews (Phase 6). Uses the existing tokens only; no new colours or fonts. */
+.rv-summary { display: grid; gap: var(--space-5, 2rem); margin: 1.5rem 0; grid-template-columns: minmax(8rem, 12rem) 1fr; align-items: center; }
+.rv-avg { display: grid; gap: 0.25rem; }
+.rv-avg strong { font-family: var(--serif); font-size: 3rem; line-height: 1; color: var(--forest-deep); }
+.rv-stars { letter-spacing: 0.1em; color: var(--line-strong); }
+.rv-stars .on { color: var(--gold-text); }
+.rv-dist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
+.rv-dist button { display: grid; grid-template-columns: 4rem 1fr 2.5rem; gap: 0.75rem; width: 100%; align-items: center; background: none; border: 0; padding: 0.25rem 0; font: inherit; color: var(--ink); cursor: pointer; text-align: left; }
+.rv-dist button.on, .rv-dist button:hover { color: var(--forest-deep); font-weight: var(--fw-semibold, 600); }
+.rv-bar { display: block; height: 0.5rem; border-radius: 999px; background: var(--sand); overflow: hidden; }
+.rv-bar i { display: block; height: 100%; background: var(--gold); }
+.rv-own { display: grid; gap: 0.75rem; margin: 1rem 0 1.5rem; justify-items: start; }
+.rv-yours { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+.rv-note { color: var(--ok); margin: 0; }
+.rv-error { color: var(--bad); margin: 0.5rem 0; }
+.rv-form { display: grid; gap: 1rem; width: min(100%, 38rem); padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--cream); }
+.rv-field { display: grid; gap: 0.35rem; font-weight: var(--fw-semibold, 600); }
+.rv-field input:not([type='file']), .rv-field textarea, .rv-tools select, .rv-report select { font: inherit; padding: 0.65rem 0.75rem; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--white); color: var(--ink); }
+.rv-field small { font-weight: 400; color: var(--muted); }
+.rv-picker { border: 0; padding: 0; margin: 0; display: flex; gap: 0.25rem; align-items: center; }
+.rv-picker legend { font-weight: var(--fw-semibold, 600); margin-bottom: 0.35rem; }
+.rv-picker label { position: relative; font-size: 1.75rem; line-height: 1; color: var(--line-strong); cursor: pointer; }
+.rv-picker label.on { color: var(--gold-text); }
+.rv-picker input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.rv-picker label:focus-within { outline: 2px solid var(--forest-deep); outline-offset: 2px; }
+.rv-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.rv-actions, .rv-tools, .rv-report { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+.rv-tools { margin: 1rem 0; }
+.rv-list { list-style: none; margin: 0 0 1.5rem; padding: 0; display: grid; gap: 1.5rem; }
+.rv-item { padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+.rv-head { display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; align-items: baseline; }
+.rv-meta { margin: 0.25rem 0 0.5rem; color: var(--muted); font-size: var(--fs-small); }
+.rv-verified { color: var(--ok); font-weight: var(--fw-semibold, 600); }
+.rv-body { margin: 0; white-space: pre-line; overflow-wrap: anywhere; }
+.rv-photos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+.rv-photos img { width: 6rem; height: 6rem; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); }
+.rv-reply { margin-top: 0.75rem; padding: 0.75rem 1rem; border-left: 3px solid var(--gold); background: var(--sand); border-radius: 0 var(--radius) var(--radius) 0; }
+.rv-reply p { margin: 0; }
+.rv-reply-label { font-size: var(--fs-small); font-weight: var(--fw-semibold, 600); color: var(--forest-deep); margin-bottom: 0.25rem !important; }
+.rv-foot { margin-top: 0.5rem; font-size: var(--fs-small); }
+.rv-link { background: none; border: 0; padding: 0; font: inherit; color: var(--gold-text); text-decoration: underline; cursor: pointer; }
+@media (max-width: 40rem) { .rv-summary { grid-template-columns: 1fr; } .rv-form { padding: 1rem; } }
+@media (prefers-reduced-motion: reduce) { .rv * { transition: none !important; } }

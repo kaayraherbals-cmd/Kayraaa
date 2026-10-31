@@ -1,0 +1,70 @@
+
+> kaayra-herbals@1.0.0 build
+> tsc --noEmit && vite build && vite build --ssr src/entry-server.tsx --outDir dist-server && node scripts/prerender.mjs
+
+vite v5.4.21 building for production...
+transforming...
+✓ 203 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                                            1.98 kB │ gzip:   0.70 kB
+dist/assets/instrument-sans-latin-ext-wght-normal-B5bTHO_g.woff2          11.14 kB
+dist/assets/fraunces-vietnamese-wght-normal-CnvboYUG.woff2                11.57 kB
+dist/assets/fraunces-vietnamese-wght-italic-BicUS2cM.woff2                12.95 kB
+dist/assets/noto-serif-devanagari-latin-ext-wght-normal-tigZJXFW.woff2    15.74 kB
+dist/assets/noto-serif-devanagari-latin-wght-normal-B3HgCHZx.woff2        29.47 kB
+dist/assets/instrument-sans-latin-wght-normal-BbzFLZTg.woff2              30.09 kB
+dist/assets/fraunces-latin-ext-wght-normal-Ca2vKHc0.woff2                 33.58 kB
+dist/assets/fraunces-latin-wght-normal-ukD16Tqj.woff2                     36.62 kB
+dist/assets/fraunces-latin-ext-wght-italic-BfTTTDIL.woff2                 40.53 kB
+dist/assets/fraunces-latin-wght-italic-Py8at3oI.woff2                     45.66 kB
+dist/assets/noto-serif-devanagari-devanagari-wght-normal-Ck0C6go5.woff2  126.86 kB
+dist/assets/Admin-BpQZNfYn.css                                            73.51 kB │ gzip:  13.41 kB
+dist/assets/index-BfKKupP7.css                                           113.09 kB │ gzip:  21.88 kB
+dist/assets/inventory-Bl5ipMGV.js                                          0.57 kB │ gzip:   0.37 kB
+dist/assets/deliveryAreas-DgSWlxKn.js                                      1.67 kB │ gzip:   0.93 kB
+dist/assets/products-ChYPKh7q.js                                           2.69 kB │ gzip:   1.25 kB
+dist/assets/AdminMembers-ClKbO7Ci.js                                       3.12 kB │ gzip:   1.29 kB
+dist/assets/AdminAudit-EQkpkGwN.js                                         5.40 kB │ gzip:   2.01 kB
+dist/assets/AdminOrders-C_K5LjJd.js                                        7.55 kB │ gzip:   2.75 kB
+dist/assets/AdminRecovery-bwT60JPv.js                                      8.91 kB │ gzip:   2.92 kB
+dist/assets/AdminInventory-BpDFT0OJ.js                                     9.18 kB │ gzip:   2.88 kB
+dist/assets/AdminRefunds-DHexBSG0.js                                       9.24 kB │ gzip:   3.25 kB
+dist/assets/AdminBundles-BoijUjev.js                                       9.34 kB │ gzip:   3.16 kB
+dist/assets/AdminReviews-B2eYGHAk.js                                      11.63 kB │ gzip:   3.78 kB
+dist/assets/AdminDelivery-D3gfpAAM.js                                     12.44 kB │ gzip:   4.03 kB
+dist/assets/AdminAnalytics-BaRlk0HM.js                                    15.21 kB │ gzip:   4.93 kB
+dist/assets/AdminShipments-D5YynA9W.js                                    16.26 kB │ gzip:   4.66 kB
+dist/assets/AdminCoupons-C-h2P4N8.js                                      16.83 kB │ gzip:   5.01 kB
+dist/assets/AdminIntelligence-CdkUXVik.js                                 17.77 kB │ gzip:   5.73 kB
+dist/assets/AdminProducts-COr0TYsT.js                                     25.10 kB │ gzip:   7.51 kB
+dist/assets/AdminFinance-CGqKezdg.js                                      33.45 kB │ gzip:   8.17 kB
+dist/assets/Admin-Dl9jXrey.js                                             73.98 kB │ gzip:  21.71 kB
+dist/assets/index-DozUFM2O.js                                            409.01 kB │ gzip: 123.11 kB
+✓ built in 3.88s
+vite v5.4.21 building SSR bundle for production...
+transforming...
+✓ 155 modules transformed.
+rendering chunks...
+dist-server/assets/inventory-BBoAvXws.js            0.93 kB
+dist-server/assets/deliveryAreas-DxBtQfnU.js        2.96 kB
+dist-server/assets/products-DbLBPVFk.js             3.66 kB
+dist-server/assets/AdminMembers-cLtO2OwG.js         4.98 kB
+dist-server/assets/AdminAudit-D1YGESlM.js           8.19 kB
+dist-server/assets/AdminOrders-mEasfmzi.js         12.36 kB
+dist-server/assets/AdminRecovery-CaAyPELW.js       13.29 kB
+dist-server/assets/AdminRefunds-DrXEPSW9.js        14.22 kB
+dist-server/assets/AdminInventory-BEoEnoE6.js      14.54 kB
+dist-server/assets/AdminBundles-SMecb-QC.js        14.77 kB
+dist-server/assets/AdminReviews-Df3qEG9g.js        18.50 kB
+dist-server/assets/AdminDelivery-CbLZLRNC.js       19.46 kB
+dist-server/assets/AdminAnalytics-B06c86Re.js      23.68 kB
+dist-server/assets/AdminShipments-C18OikKZ.js      25.67 kB
+dist-server/assets/AdminCoupons-CC7a1C1q.js        26.88 kB
+dist-server/assets/AdminIntelligence-ubicmz_o.js   26.93 kB
+dist-server/assets/AdminProducts-B8JUcGYP.js       38.84 kB
+dist-server/assets/AdminFinance-CA9NxcMS.js        53.57 kB
+dist-server/assets/Admin-BrwNhnqo.js              111.42 kB
+dist-server/entry-server.js                       355.32 kB
+✓ built in 2.29s
+[prerender] 17 routes + 404 + admin and sign-in shells, sitemap and robots written for https://kaayraherbals.com

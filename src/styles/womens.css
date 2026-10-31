@@ -1,0 +1,134 @@
+/*
+ * Women's line theme: baby pink, soft and premium, for products themed 'womens' in src/content/themes.ts.
+ * It only recolours and softens the card and the product page. It adds no text, claims, images or prices.
+ * The palette is PROPOSED and needs brand approval (design/packaging/README.md). Text pairs were chosen for contrast:
+ * --w-deep (#7d2f4a) on --w-petal (#fdeff3) is about 8:1; --w-rose-text (#9a4a62) on --w-petal is about 5.4:1.
+ * Loaded last (src/main.tsx) so these rules win over shop.css, legacy.css and polish.css. Scoped to .theme-womens only.
+ */
+.theme-womens {
+  --w-mist: #fff8fa;
+  --w-petal: #fdeff3;
+  --w-blush: #f8dce4;        /* the baby pink */
+  --w-rose: #e9b6c5;         /* borders and soft accents */
+  --w-rosegold: #b76e79;     /* fine rules and ornaments (decorative only, never text) */
+  --w-rose-text: #9a4a62;    /* small accent text on light pink */
+  --w-deep: #7d2f4a;         /* headings and buttons */
+  --w-deep-hover: #662339;
+  --w-shadow: rgba(125, 47, 74, 0.35);
+  --gold-text: var(--w-rose-text);
+  --brass-text: var(--w-rose-text);
+  --sand: var(--w-petal);
+}
+
+/* ---------- Product card ---------- */
+.pcard.theme-womens {
+  position: relative;
+  background: linear-gradient(180deg, var(--w-mist) 0%, var(--w-petal) 100%);
+  border: 1px solid color-mix(in srgb, var(--w-rose) 70%, transparent);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 10px 26px -20px var(--w-shadow);
+  transition: transform var(--dur-3, 0.35s) var(--ease), box-shadow var(--dur-3, 0.35s) var(--ease), border-color var(--dur-2, 0.25s) var(--ease);
+}
+.pcard.theme-womens::before {          /* a fine rose-gold rule along the top edge */
+  content: '';
+  position: absolute; inset: 0 0 auto 0; height: 3px; z-index: 2;
+  background: linear-gradient(90deg, transparent, var(--w-rosegold), var(--w-rose), var(--w-rosegold), transparent);
+  opacity: 0.85;
+}
+.pcard.theme-womens .pcard-media { border-bottom: 1px solid color-mix(in srgb, var(--w-rose) 60%, transparent); }
+.pcard.theme-womens .pcard-media::after {   /* soft light from the top-left, like a petal catching the sun */
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(120% 90% at 8% 0%, rgba(255, 255, 255, 0.5), transparent 55%);
+}
+.pcard.theme-womens .pvisual--placeholder {
+  color: var(--w-deep);
+  background:
+    radial-gradient(60% 45% at 80% 15%, color-mix(in srgb, var(--w-rose) 55%, transparent), transparent 70%),
+    linear-gradient(160deg, var(--w-blush), var(--w-petal));
+}
+.pcard.theme-womens .pvisual--placeholder .pvisual-accent { stroke: var(--w-rosegold); }
+.pcard.theme-womens .pvisual-note { color: var(--w-deep); }
+.pcard.theme-womens .pcard-body { padding: 1rem 1.15rem 1.25rem; }
+.pcard.theme-womens .pcard-kicker { color: var(--w-rose-text); letter-spacing: 0.14em; }
+.pcard.theme-womens h3, .pcard.theme-womens h3 a { color: var(--w-deep); }
+.pcard.theme-womens .pcard-pack, .pcard.theme-womens .pcard-excerpt { color: color-mix(in srgb, var(--w-deep) 78%, var(--ink)); }
+.pcard.theme-womens .pcard-price { color: var(--w-deep); }
+.pcard.theme-womens .pcard-notify { color: var(--w-deep); text-decoration-color: var(--w-rosegold); }
+.pcard.theme-womens .btn {
+  background: linear-gradient(180deg, #8d3a57, var(--w-deep));
+  border-color: var(--w-deep);
+  color: #fff;
+}
+.pcard.theme-womens .btn:hover:not(:disabled) { background: var(--w-deep-hover); border-color: var(--w-deep-hover); }
+.pcard.theme-womens .btn--ghost {
+  background: transparent;
+  color: var(--w-deep);
+  border-color: color-mix(in srgb, var(--w-deep) 55%, transparent);
+}
+.pcard.theme-womens .btn--ghost:hover:not(:disabled) { background: var(--w-blush); color: var(--w-deep-hover); border-color: var(--w-deep); }
+.pcard.theme-womens :focus-visible { outline: 2px solid var(--w-deep); outline-offset: 3px; }
+@media (hover: hover) {
+  .pcard.theme-womens:hover { transform: translateY(-4px); border-color: var(--w-rosegold); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 22px 38px -22px var(--w-shadow); }
+}
+
+/* ---------- Product page ---------- */
+.theme-womens .pdp {
+  background:
+    radial-gradient(50rem 28rem at 100% -5%, color-mix(in srgb, var(--w-blush) 75%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--w-mist), var(--w-petal));
+}
+.theme-womens .crumbs, .theme-womens .crumbs a { color: var(--w-rose-text); }
+.theme-womens .pdp-media {
+  background: linear-gradient(160deg, var(--w-blush), var(--w-petal));
+  border: 1px solid color-mix(in srgb, var(--w-rose) 75%, transparent);
+  border-radius: 14px;
+  box-shadow: 0 24px 44px -30px var(--w-shadow), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  overflow: hidden;
+}
+.theme-womens .pdp-kicker { color: var(--w-rose-text); letter-spacing: 0.14em; }
+.theme-womens .pdp-kicker .badge { background: var(--w-blush); border-color: color-mix(in srgb, var(--w-deep) 40%, transparent); color: var(--w-deep); border-radius: 999px; }
+.theme-womens .pdp h1 { color: var(--w-deep); }
+.theme-womens .pdp h1::after {            /* a fine rose-gold rule under the product name */
+  content: '';
+  display: block; width: 4.5rem; height: 2px; margin-top: 0.9rem;
+  background: linear-gradient(90deg, var(--w-rosegold), transparent);
+}
+.theme-womens .pdp-pack { color: var(--w-rose-text); }
+.theme-womens .pdp-lede { color: color-mix(in srgb, var(--w-deep) 70%, var(--ink)); }
+.theme-womens .pdp .btn { background: linear-gradient(180deg, #8d3a57, var(--w-deep)); border-color: var(--w-deep); color: #fff; }
+.theme-womens .pdp .btn:hover:not(:disabled) { background: var(--w-deep-hover); border-color: var(--w-deep-hover); }
+.theme-womens .pdp .btn--ghost { background: transparent; color: var(--w-deep); border-color: color-mix(in srgb, var(--w-deep) 55%, transparent); }
+.theme-womens .pdp .btn--ghost:hover:not(:disabled) { background: var(--w-blush); color: var(--w-deep-hover); }
+.theme-womens .pdp .link-arrow, .theme-womens .pdp a:not(.btn) { color: var(--w-deep); }
+.theme-womens .pdp-soon, .theme-womens .status-note {
+  background: color-mix(in srgb, var(--w-blush) 60%, var(--w-mist));
+  border: 1px solid color-mix(in srgb, var(--w-rose) 80%, transparent);
+  border-radius: 10px;
+  color: var(--w-deep);
+}
+.theme-womens .pdp-details { border-color: color-mix(in srgb, var(--w-rose) 80%, transparent); }
+.theme-womens .expand { border-color: color-mix(in srgb, var(--w-rose) 80%, transparent); }
+.theme-womens .expand summary { color: var(--w-deep); }
+.theme-womens .ing-list li { border-color: color-mix(in srgb, var(--w-rose) 70%, transparent); background: color-mix(in srgb, var(--w-mist) 80%, transparent); }
+.theme-womens .section--sand { background: var(--w-petal); }
+.theme-womens .section--cream { background: var(--w-mist); }
+.theme-womens .pdp ~ .section h2, .theme-womens .related h2 { color: var(--w-deep); }
+.theme-womens :focus-visible { outline-color: var(--w-deep); }
+
+/* Related products on a themed page: a card that is not itself themed keeps the neutral palette. */
+.theme-womens .related .pcard:not(.theme-womens) { --gold-text: #7a5a28; --brass-text: #7a5a28; --sand: #ebe3d1; }
+.theme-womens .related .pcard:not(.theme-womens) h3 a { color: var(--ink); }
+
+/* The note sits inside the soft panel, so it needs no box of its own. */
+.theme-womens .pdp-soon { padding: 1.1rem 1.25rem; }
+.theme-womens .pdp-soon .status-note { background: none; border: 0; border-radius: 0; padding-left: 0; padding-right: 0; }
+/* Product-page placeholder uses the same soft pink as the card. */
+.theme-womens .pdp-media .pvisual--placeholder {
+  color: var(--w-deep);
+  background:
+    radial-gradient(60% 45% at 80% 15%, color-mix(in srgb, var(--w-rose) 55%, transparent), transparent 70%),
+    linear-gradient(160deg, var(--w-blush), var(--w-petal));
+}
+.theme-womens .pdp-media .pvisual-note { color: var(--w-deep); }

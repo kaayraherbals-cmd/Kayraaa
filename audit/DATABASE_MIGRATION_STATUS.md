@@ -1,0 +1,6 @@
+# Database Migration Status
+Status: NOT VERIFIED. No PostgreSQL in this sandbox, so no migration or self-test was executed in this audit.
+- 55 files in supabase/ (about 7.2k lines): 30+ migrations, matching self-tests (checkout, coupons, refunds, shipments, reviews, rate limits, loyalty, bundles/wishlists, finance, delivery areas, email outbox, ai, stage7), 3 concurrency scripts, 1 pg_cron example (`scheduler_pg_cron.sql.example`, marked "NOT RUN, NOT VERIFIED").
+- Project's own record (HANDOFF.md): `stage7_commerce.sql` + `stage7_selftest.sql` "DONE, NEVER RUN"; `finance.sql`, `loyalty.sql`, `bundles_wishlists.sql`, `cart_recovery.sql` all marked "run on STAGING first"; one known failing self-test on clean PG16 (`cart_recovery_selftest.sql` attribution check without finance.sql).
+- Order and procedure: docs/DATABASE_MIGRATIONS.md; verification script `scripts/db-verify.sh`; CI workflow has a `postgres:` service (.github/workflows/ci.yml:74), contents not yet reviewed.
+- Required before release: run `PGDATABASE=kh_verify bash scripts/db-verify.sh` on a clean PostgreSQL 16 (add `ai` and `ai_selftest`), apply twice (re-run safety), then run the three concurrency scripts. Record the result here.

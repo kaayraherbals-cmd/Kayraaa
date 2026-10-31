@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Nitesh Jaiswal",
+    "role": "Founder & CEO",
+    "qualifications": [
+      "D.Pharm",
+      "BAMS (pursuing)"
+    ],
+    "headline": [
+      "Founder & CEO of KAAYRA HERBALS",
+      "Operations Manager (AMBEY MEDICAL STORE)",
+      "Allopathic & Ayurvedic Pharmacy Knowledge | D.Pharma | BAMS (Pursuing)"
+    ],
+    "email": "niteshkaayraherbals@gmail.com",
+    "instagram": "nitesh__jaiswal12",
+    "profiles": [{ "label": "LinkedIn", "url": "https://www.linkedin.com/in/nitesh-jaiswal-b0ab08372" }],
+    "photo": {
+      "src": "/images/founders/nitesh-640.jpg",
+      "srcSet": "/images/founders/nitesh-320.jpg 320w, /images/founders/nitesh-640.jpg 640w",
+      "webpSrcSet": "/images/founders/nitesh-320.webp 320w, /images/founders/nitesh-640.webp 640w",
+      "width": 640,
+      "height": 800,
+      "alt": "Portrait of Nitesh Jaiswal, Founder & CEO of Kaayra Herbals"
+    }
+  },
+  {
+    "name": "Ritika Jaiswal",
+    "role": "Co-Founder",
+    "qualifications": [
+      "B.Pharm (Modern)"
+    ],
+    "institution": "Dr. A. P. J. Abdul Kalam Technical University",
+    "email": "ritikakaayraherbals@gmail.com",
+    "instagram": "jaiswal_reetika_6",
+    "profileNote": "Ritika is not on LinkedIn.",
+    "photo": {
+      "src": "/images/founders/ritika-640.jpg",
+      "srcSet": "/images/founders/ritika-320.jpg 320w, /images/founders/ritika-640.jpg 640w",
+      "webpSrcSet": "/images/founders/ritika-320.webp 320w, /images/founders/ritika-640.webp 640w",
+      "width": 640,
+      "height": 800,
+      "alt": "Portrait of Ritika Jaiswal, Co-Founder of Kaayra Herbals"
+    }
+  },
+  {
+    "name": "Anuj Kumar",
+    "role": "Co-Founder",
+    "qualifications": [
+      "B.Pharm (Ayurveda)"
+    ],
+    "headline": [
+      "B.Pharm (Ayurveda) Student at BHU",
+      "Placement Cell Student Coordinator | Aspiring Pharmaceutical Industry Professional | Interested in Quality Control (QC), Quality Assurance (QA) & Herbal Drug Research",
+      "Banaras Hindu University"
+    ],
+    "email": "anujkaayraherbals@gmail.com",
+    "instagram": "anuj.k_official",
+    "profiles": [{ "label": "LinkedIn", "url": "https://www.linkedin.com/in/anuj-kumar-9b1612408" }],
+    "photo": {
+      "src": "/images/founders/anuj-640.jpg",
+      "srcSet": "/images/founders/anuj-320.jpg 320w, /images/founders/anuj-640.jpg 640w",
+      "webpSrcSet": "/images/founders/anuj-320.webp 320w, /images/founders/anuj-640.webp 640w",
+      "width": 640,
+      "height": 800,
+      "alt": "Portrait of Anuj Kumar, Co-Founder of Kaayra Herbals"
+    }
+  }
+]
