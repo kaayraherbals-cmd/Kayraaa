@@ -1,0 +1,51 @@
+# Tells IndexNow about public pages that are new or changed since the last accepted submission (scripts/indexnow.mjs).
+# NOT YET RUN on GitHub (written where no network was available). It needs no secrets: the IndexNow key is a public file served at /<key>.txt.
+# Runs after a successful Production deployment reported by Vercel, or by hand (Actions > indexnow > Run workflow).
+# The change-tracking file is kept with actions/cache. If the cache is evicted (unused for 7 days) the next run treats every page as new and
+# submits them once; to avoid that, run the workflow by hand with baseline=true after a deployment that was already submitted.
+name: indexnow
+on:
+  workflow_dispatch:
+    inputs:
+      baseline:
+        description: 'Record the live pages as already submitted, without sending anything'
+        type: boolean
+        default: false
+      dry_run:
+        description: 'Show what would be submitted; send and save nothing'
+        type: boolean
+        default: false
+  deployment_status:
+
+concurrency: { group: indexnow, cancel-in-progress: false }
+
+jobs:
+  submit:
+    if: github.event_name == 'workflow_dispatch' || (github.event.deployment_status.state == 'success' && github.event.deployment_status.environment == 'Production')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SITE_URL: https://kaayraherbals.com
+      INDEXNOW_STATE: .indexnow/state.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version-file: .nvmrc }
+      - name: Restore change-tracking state
+        uses: actions/cache/restore@v4
+        with:
+          path: .indexnow
+          key: indexnow-state-restore
+          restore-keys: indexnow-state-
+      - name: Submit new and changed public pages
+        env:
+          INDEXNOW_BASELINE: ${{ inputs.baseline && '1' || '0' }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: node scripts/indexnow.mjs
+      # Saved even when a later batch failed: pages accepted earlier in the run are recorded, failed ones are retried next time.
+      - name: Save change-tracking state
+        if: always() && hashFiles('.indexnow/state.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: .indexnow
+          key: indexnow-state-${{ github.run_id }}

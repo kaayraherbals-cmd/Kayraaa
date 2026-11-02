@@ -1,0 +1,105 @@
+PASS  routes.json has 17 public routes (expect 17)
+PASS  sitemap has 17 URLs, equal to the route list
+PASS  no private route appears in the sitemap
+PASS  /: canonical https://kaayraherbals.com/
+PASS  /: og:url matches canonical
+PASS  /: og:title and og:description present
+PASS  /: indexable (no noindex)
+PASS  /our-story: canonical https://kaayraherbals.com/our-story
+PASS  /our-story: og:url matches canonical
+PASS  /our-story: og:title and og:description present
+PASS  /our-story: indexable (no noindex)
+PASS  /founders: canonical https://kaayraherbals.com/founders
+PASS  /founders: og:url matches canonical
+PASS  /founders: og:title and og:description present
+PASS  /founders: indexable (no noindex)
+PASS  /our-approach: canonical https://kaayraherbals.com/our-approach
+PASS  /our-approach: og:url matches canonical
+PASS  /our-approach: og:title and og:description present
+PASS  /our-approach: indexable (no noindex)
+PASS  /collection: canonical https://kaayraherbals.com/collection
+PASS  /collection: og:url matches canonical
+PASS  /collection: og:title and og:description present
+PASS  /collection: indexable (no noindex)
+PASS  /ingredients: canonical https://kaayraherbals.com/ingredients
+PASS  /ingredients: og:url matches canonical
+PASS  /ingredients: og:title and og:description present
+PASS  /ingredients: indexable (no noindex)
+PASS  /quality-and-transparency: canonical https://kaayraherbals.com/quality-and-transparency
+PASS  /quality-and-transparency: og:url matches canonical
+PASS  /quality-and-transparency: og:title and og:description present
+PASS  /quality-and-transparency: indexable (no noindex)
+PASS  /journal: canonical https://kaayraherbals.com/journal
+PASS  /journal: og:url matches canonical
+PASS  /journal: og:title and og:description present
+PASS  /journal: indexable (no noindex)
+PASS  /journal/traditional-use-and-clinical-evidence: canonical https://kaayraherbals.com/journal/traditional-use-and-clinical-evidence
+PASS  /journal/traditional-use-and-clinical-evidence: og:url matches canonical
+PASS  /journal/traditional-use-and-clinical-evidence: og:title and og:description present
+PASS  /journal/traditional-use-and-clinical-evidence: indexable (no noindex)
+PASS  /journal/reading-an-ayurvedic-label: canonical https://kaayraherbals.com/journal/reading-an-ayurvedic-label
+PASS  /journal/reading-an-ayurvedic-label: og:url matches canonical
+PASS  /journal/reading-an-ayurvedic-label: og:title and og:description present
+PASS  /journal/reading-an-ayurvedic-label: indexable (no noindex)
+PASS  /journal/prakriti-a-traditional-idea: canonical https://kaayraherbals.com/journal/prakriti-a-traditional-idea
+PASS  /journal/prakriti-a-traditional-idea: og:url matches canonical
+PASS  /journal/prakriti-a-traditional-idea: og:title and og:description present
+PASS  /journal/prakriti-a-traditional-idea: indexable (no noindex)
+PASS  /journal/from-classical-text-to-formulation: canonical https://kaayraherbals.com/journal/from-classical-text-to-formulation
+PASS  /journal/from-classical-text-to-formulation: og:url matches canonical
+PASS  /journal/from-classical-text-to-formulation: og:title and og:description present
+PASS  /journal/from-classical-text-to-formulation: indexable (no noindex)
+PASS  /product-development: canonical https://kaayraherbals.com/product-development
+PASS  /product-development: og:url matches canonical
+PASS  /product-development: og:title and og:description present
+PASS  /product-development: indexable (no noindex)
+PASS  /contact: canonical https://kaayraherbals.com/contact
+PASS  /contact: og:url matches canonical
+PASS  /contact: og:title and og:description present
+PASS  /contact: indexable (no noindex)
+PASS  /privacy: canonical https://kaayraherbals.com/privacy
+PASS  /privacy: og:url matches canonical
+PASS  /privacy: og:title and og:description present
+PASS  /privacy: indexable (no noindex)
+PASS  /medical-disclaimer: canonical https://kaayraherbals.com/medical-disclaimer
+PASS  /medical-disclaimer: og:url matches canonical
+PASS  /medical-disclaimer: og:title and og:description present
+PASS  /medical-disclaimer: indexable (no noindex)
+PASS  /legal: canonical https://kaayraherbals.com/legal
+PASS  /legal: og:url matches canonical
+PASS  /legal: og:title and og:description present
+PASS  /legal: indexable (no noindex)
+PASS  private shells present in dist: 12, with noindex: 12
+PASS  robots.txt references the production sitemap
+PASS  home: one Organization, name Kaayra Herbals, stable @id
+PASS  Organization.sameAs[0] = https://www.instagram.com/kaayra.herbals/
+PASS  wrong Instagram handle absent
+PASS  home: one WebSite pointing at the Organization
+PASS  founders page: 3 Person entities {"Nitesh Jaiswal":"Founder & CEO","Ritika Jaiswal":"Co-Founder","Anuj Kumar":"Co-Founder"}
+PASS  each founder linked to the Organization (worksFor)
+PASS  4 article routes
+PASS  /journal/traditional-use-and-clinical-evidence: Article author and publisher are the Organization
+PASS  /journal/traditional-use-and-clinical-evidence: no personal author, reviewer or modified date
+PASS  /journal/traditional-use-and-clinical-evidence: headline equals visible H1, datePublished 2026-10-22 equals visible date and routes.json
+PASS  /journal/traditional-use-and-clinical-evidence: mainEntityOfPage is the canonical URL
+PASS  /journal/reading-an-ayurvedic-label: Article author and publisher are the Organization
+PASS  /journal/reading-an-ayurvedic-label: no personal author, reviewer or modified date
+PASS  /journal/reading-an-ayurvedic-label: headline equals visible H1, datePublished 2026-10-14 equals visible date and routes.json
+PASS  /journal/reading-an-ayurvedic-label: mainEntityOfPage is the canonical URL
+PASS  /journal/prakriti-a-traditional-idea: Article author and publisher are the Organization
+PASS  /journal/prakriti-a-traditional-idea: no personal author, reviewer or modified date
+PASS  /journal/prakriti-a-traditional-idea: headline equals visible H1, datePublished 2026-10-14 equals visible date and routes.json
+PASS  /journal/prakriti-a-traditional-idea: mainEntityOfPage is the canonical URL
+PASS  /journal/from-classical-text-to-formulation: Article author and publisher are the Organization
+PASS  /journal/from-classical-text-to-formulation: no personal author, reviewer or modified date
+PASS  /journal/from-classical-text-to-formulation: headline equals visible H1, datePublished 2026-10-14 equals visible date and routes.json
+PASS  /journal/from-classical-text-to-formulation: mainEntityOfPage is the canonical URL
+PASS  home: 11 visible FAQ questions, 11 FAQPage entries
+PASS  restored question visible and marked up: What is Kaayra Herbals’ philosophy?
+PASS  restored question visible and marked up: What is ingredient transparency?
+PASS  restored question visible and marked up: What is the difference between traditional Ayurvedic use and clinical evidence?
+PASS  approval disclaimer visible on home
+PASS  no Offer/Product/Review/Rating/price/availability markup on any page
+PASS  FAQPage only on: /
+
+TOTAL 103 checks, 0 failed

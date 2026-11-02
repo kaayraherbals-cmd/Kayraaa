@@ -1,0 +1,87 @@
+/*
+ * Polish layer: loaded last. Motion and interaction refinements only (no colour, copy or layout changes).
+ * Rules: opacity and transform only, GPU-friendly, nothing runs under prefers-reduced-motion, hover effects only on hover devices.
+ * It also replaces the three earlier, conflicting `.reveal` definitions (base.css, legacy.css twice) with one.
+ */
+:root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);      /* long, soft landing: entrances */
+  --ease-spring: cubic-bezier(0.34, 1.35, 0.64, 1); /* small overshoot: badges, toggles */
+}
+
+/* Touch: no 300ms tap delay, no grey flash on tap */
+html { -webkit-tap-highlight-color: transparent; }
+a, button, summary, label, select, input, textarea, [role='button'] { touch-action: manipulation; }
+
+/* Reveal: one definition. An animation (not a transition) with backwards fill, so after it ends the element keeps no leftover
+   transform or delay and its own hover effects respond instantly. Siblings arrive in a short stagger. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal { opacity: 0; transition: none; transform: none; }
+  .js .reveal:not(.in) { will-change: opacity, transform; }
+  .js .reveal.in, .no-reveal .reveal { opacity: 1; transform: none; will-change: auto; }
+  .js .reveal.in { animation: reveal-up 0.85s var(--ease-out) var(--rd, 0s) backwards; }
+  .js .reveal:nth-child(2) { --rd: 0.08s; }
+  .js .reveal:nth-child(3) { --rd: 0.16s; }
+  .js .reveal:nth-child(n + 4) { --rd: 0.22s; }
+  @keyframes reveal-up { from { opacity: 0; transform: translate3d(0, 22px, 0); } }
+
+  /* Page change: a soft fade (no transform, so fixed bars inside the page never jump) */
+  .page-enter { animation: fade 0.38s var(--ease-out) both; }
+}
+
+/* Buttons: a small lift on hover, a firm press, a soft gold glow on the primary call to action */
+.btn { transition: background-color var(--dur-3) var(--ease), color var(--dur-3) var(--ease), border-color var(--dur-3) var(--ease), transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .btn:hover:not([disabled]):not([aria-disabled='true']) { transform: translateY(-2px); box-shadow: 0 14px 24px -14px rgba(9, 35, 28, 0.6); }
+  .btn--gold:hover:not([disabled]):not([aria-disabled='true']), .on-dark .btn:not(.btn--ghost):hover:not([disabled]) { box-shadow: 0 14px 26px -14px rgba(196, 156, 98, 0.85); }
+  .btn--ghost:hover:not([disabled]):not([aria-disabled='true']) { box-shadow: 0 12px 22px -16px rgba(9, 35, 28, 0.5); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .btn:active:not([disabled]):not([aria-disabled='true']) { transform: translateY(1px) scale(0.985); box-shadow: none; transition-duration: 0.08s; }
+  .tool:active, .menu-toggle:active, .cart-close:active, .mobile-close:active { transform: scale(0.94); }
+  .tool, .menu-toggle, .cart-close, .mobile-close { transition: background-color var(--dur-2) var(--ease), color var(--dur-2) var(--ease), border-color var(--dur-2) var(--ease), transform 0.2s var(--ease-out); }
+}
+.btn[disabled], .btn[aria-disabled='true'] { transition-duration: var(--dur-2); }
+
+/* Product cards: the picture lifts, a soft shadow settles beneath it */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .pcard-media { transition: transform 0.55s var(--ease-out), box-shadow 0.55s var(--ease-out); }
+  .pcard:hover .pcard-media, .pcard:focus-within .pcard-media { transform: translateY(-4px); box-shadow: 0 26px 38px -30px rgba(9, 35, 28, 0.6); }
+  .pvisual img { transition: transform 1.2s var(--ease-out); }
+}
+
+/* Form fields: a clear hover, a warm focus halo */
+.field input:hover:not(:focus-visible):not([disabled]), .field textarea:hover:not(:focus-visible):not([disabled]), .field select:hover:not(:focus-visible):not([disabled]) { border-color: var(--forest-deep); }
+.field input:focus-visible, .field textarea:focus-visible, .field select:focus-visible, .pin input:focus-visible { box-shadow: 0 0 0 4px color-mix(in srgb, var(--gold) 24%, transparent); }
+.field input[aria-invalid='true']:focus-visible, .field textarea[aria-invalid='true']:focus-visible { box-shadow: 0 0 0 4px color-mix(in srgb, var(--bad) 18%, transparent); }
+input[type='checkbox'], input[type='radio'] { width: 1.25rem; height: 1.25rem; cursor: pointer; }
+label:has(> input[type='checkbox']), label:has(> input[type='radio']) { cursor: pointer; }
+
+/* Overlays: search and account menu enter softly; the mobile menu and bag also leave softly */
+@media (prefers-reduced-motion: no-preference) {
+  .search-backdrop { animation: fade 0.25s var(--ease-out) both; }
+  .search-panel { animation: sheet-down 0.4s var(--ease-out) both; }
+  .acct-pop { transform-origin: top right; animation: pop-in 0.22s var(--ease-out) both; }
+  .mobile-menu[data-open='false']:not([hidden]) { animation: menu-out 0.22s var(--ease) both; pointer-events: none; }
+  .cart-badge-count { animation: badge-pop 0.45s var(--ease-spring) both; }
+  @keyframes sheet-down { from { opacity: 0; transform: translate3d(0, -14px, 0); } }
+  @keyframes pop-in { from { opacity: 0; transform: translate3d(0, -6px, 0) scale(0.97); } }
+  @keyframes menu-out { to { opacity: 0; } }
+  @keyframes badge-pop { from { transform: scale(0.4); opacity: 0; } 60% { transform: scale(1.18); } }
+}
+
+/* Loading state for code-split screens (the back office): a thin progress line and quiet placeholders */
+.route-loading { position: fixed; inset: 0; display: grid; place-items: center; background: var(--parchment); z-index: 50; }
+.route-loading-bar { position: absolute; top: 0; left: 0; right: 0; height: 2px; overflow: hidden; background: color-mix(in srgb, var(--gold) 22%, transparent); }
+.route-loading-bar::after { content: ''; position: absolute; inset: 0; width: 40%; background: var(--gold); transform: translateX(-100%); }
+.route-loading-body { display: grid; gap: 0.8rem; justify-items: center; width: min(20rem, 70vw); }
+.route-loading-mark { display: block; margin-bottom: 0.6rem; line-height: 0; }
+.route-loading-mark img { display: block; width: min(9rem, 40vw); height: auto; }
+.route-loading-mark em { font-weight: var(--fw-medium); color: var(--gold-text); }
+.route-loading-line { display: block; width: 100%; height: 0.55rem; border-radius: 999px; background: color-mix(in srgb, var(--forest-deep) 9%, transparent); }
+.route-loading-line--short { width: 60%; }
+@media (prefers-reduced-motion: no-preference) {
+  .route-loading-bar::after { animation: route-bar 1.3s var(--ease) infinite; }
+  .route-loading-body { animation: fade 0.5s var(--ease-out) 0.15s both; }
+  .route-loading-line { background: linear-gradient(90deg, color-mix(in srgb, var(--forest-deep) 7%, transparent) 25%, color-mix(in srgb, var(--forest-deep) 15%, transparent) 50%, color-mix(in srgb, var(--forest-deep) 7%, transparent) 75%); background-size: 200% 100%; animation: shimmer 1.6s linear infinite; }
+  @keyframes route-bar { to { transform: translateX(260%); } }
+}

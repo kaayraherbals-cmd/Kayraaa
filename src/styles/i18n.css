@@ -1,0 +1,70 @@
+/* Languages: the switcher, script fonts and the typographic rules each script needs. Loaded after the base styles. */
+
+/* ---- Switcher (top right of the header) ---- */
+.lang { position: relative; margin-inline-start: 0.1rem; }
+.lang-btn { flex: none; gap: 0.35rem; padding-inline: 0.55rem; }
+.lang-btn svg { flex: none; width: 1.2rem; height: 1.2rem; }
+.lang-code { font-size: 0.75rem; font-weight: var(--fw-semibold); letter-spacing: 0.06em; font-variant-numeric: tabular-nums; }
+.lang-btn[aria-expanded='true'] { background: color-mix(in srgb, var(--forest-deep) 10%, transparent); }
+.lang-btn[data-loading] svg { animation: lang-spin 1s linear infinite; }
+@keyframes lang-spin { to { transform: rotate(360deg); } }
+
+.lang-pop { position: absolute; top: calc(100% + 0.5rem); right: 0; z-index: 75; width: min(20.5rem, calc(100vw - 2 * var(--gutter))); max-height: min(30rem, calc(100vh - var(--header-h) - 1.5rem)); max-height: min(30rem, calc(100dvh - var(--header-h) - 1.5rem)); display: flex; flex-direction: column; background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow-overlay); overflow: hidden; transform-origin: top right; }
+.lang-pop-title { margin: 0; padding: 0.8rem 1rem 0.6rem; font-size: var(--fs-label); font-weight: var(--fw-semibold); letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--gold-text); border-bottom: 1px solid var(--line); }
+.lang-list { list-style: none; margin: 0; padding: 0.35rem; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.lang-opt { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; min-height: var(--tap); padding: 0.45rem 0.7rem; border: 0; border-radius: calc(var(--radius-md) - 4px); background: none; color: var(--ink); text-align: start; cursor: pointer; transition: background-color var(--dur-1) var(--ease); }
+.lang-opt:hover { background: var(--sand); }
+.lang-opt:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; background: var(--sand); }
+.lang-opt[aria-current='true'] { background: color-mix(in srgb, var(--forest-deep) 8%, transparent); }
+.lang-names { display: grid; gap: 0.1rem; min-width: 0; }
+/* Each name is drawn in a tiny font that holds only its own letters (public/fonts/lang), so no script font is downloaded just to open the list. */
+.lang-native { font-family: 'Kaayra Lang', var(--sans); font-size: 1.0625rem; font-weight: var(--fw-medium); line-height: 1.5; color: var(--forest-deep); overflow-wrap: anywhere; }
+.lang-en { font-size: 0.8125rem; color: var(--muted); line-height: 1.3; }
+.lang-note { font-size: 0.75rem; color: var(--muted); line-height: 1.3; font-style: italic; }
+.lang-tick { display: inline-flex; color: var(--gold-text); flex: none; }
+.lang-tick svg { width: 1.1rem; height: 1.1rem; stroke-width: 2; }
+@media (prefers-reduced-motion: no-preference) {
+  .lang-pop { animation: lang-in 0.2s var(--ease) both; }
+  .lang-pop[data-open='false'] { animation: lang-out 0.18s var(--ease) both; pointer-events: none; }
+}
+@keyframes lang-in { from { opacity: 0; transform: translateY(-6px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes lang-out { from { opacity: 1; } to { opacity: 0; transform: translateY(-4px) scale(0.98); } }
+
+/* Phones: icon only, so Menu, logo, Search, Bag and the globe always fit (checked down to 320px). The code appears from 480px up. */
+@media (max-width: 29.99rem) { .lang-code { display: none; } .lang-btn { padding-inline: 0.25rem; } }
+
+/* ---- Fonts per script. Latin stays first so brand names, prices and numbers keep Fraunces / Instrument Sans; only the native letters use the script font. ---- */
+html[data-script='deva'] { --sans: 'Instrument Sans Variable', 'Noto Sans Devanagari Variable', system-ui, sans-serif; --display: 'Fraunces Variable', 'Noto Serif Devanagari Variable', 'Noto Sans Devanagari Variable', serif; }
+html[data-script='bengali'] { --sans: 'Instrument Sans Variable', 'Noto Sans Bengali Variable', system-ui, sans-serif; --display: 'Fraunces Variable', 'Noto Serif Bengali Variable', 'Noto Sans Bengali Variable', serif; }
+html[data-script='tamil'] { --sans: 'Instrument Sans Variable', 'Noto Sans Tamil Variable', system-ui, sans-serif; --display: 'Fraunces Variable', 'Noto Serif Tamil Variable', 'Noto Sans Tamil Variable', serif; }
+html[data-script='telugu'] { --sans: 'Instrument Sans Variable', 'Noto Sans Telugu Variable', system-ui, sans-serif; --display: 'Fraunces Variable', 'Noto Serif Telugu Variable', 'Noto Sans Telugu Variable', serif; }
+html[data-script='gujarati'] { --sans: 'Instrument Sans Variable', 'Noto Sans Gujarati Variable', system-ui, sans-serif; --display: 'Fraunces Variable', 'Noto Serif Gujarati Variable', 'Noto Sans Gujarati Variable', serif; }
+html[data-script='kannada'] { --sans: 'Instrument Sans Variable', 'Noto Sans Kannada Variable', system-ui, sans-serif; --display: 'Fraunces Variable', 'Noto Serif Kannada Variable', 'Noto Sans Kannada Variable', serif; }
+html[data-script='malayalam'] { --sans: 'Instrument Sans Variable', 'Noto Sans Malayalam Variable', system-ui, sans-serif; --display: 'Fraunces Variable', 'Noto Serif Malayalam Variable', 'Noto Sans Malayalam Variable', serif; }
+html[data-script='gurmukhi'] { --sans: 'Instrument Sans Variable', 'Noto Sans Gurmukhi Variable', system-ui, sans-serif; --display: 'Fraunces Variable', 'Noto Serif Gurmukhi Variable', 'Noto Sans Gurmukhi Variable', serif; }
+html[data-script='oriya'] { --sans: 'Instrument Sans Variable', 'Noto Sans Oriya Variable', system-ui, sans-serif; --display: 'Fraunces Variable', 'Noto Sans Oriya Variable', serif; }
+html[data-script='nastaliq'] { --sans: 'Instrument Sans Variable', 'Noto Nastaliq Urdu Variable', 'Noto Naskh Arabic Variable', system-ui, sans-serif; --display: 'Fraunces Variable', 'Noto Nastaliq Urdu Variable', 'Noto Naskh Arabic Variable', serif; }
+html[data-script='naskh'] { --sans: 'Instrument Sans Variable', 'Noto Naskh Arabic Variable', system-ui, sans-serif; --display: 'Fraunces Variable', 'Noto Naskh Arabic Variable', serif; }
+html[data-script='olchiki'] { --sans: 'Instrument Sans Variable', 'Noto Sans Ol Chiki Variable', system-ui, sans-serif; --display: 'Fraunces Variable', 'Noto Sans Ol Chiki Variable', serif; }
+html[data-script='meetei'] { --sans: 'Instrument Sans Variable', 'Noto Sans Meetei Mayek Variable', system-ui, sans-serif; --display: 'Fraunces Variable', 'Noto Sans Meetei Mayek Variable', serif; }
+
+/* ---- Typography every non-Latin script needs ---- */
+/* Taller glyphs and stacked marks need more line height; negative or added letter-spacing breaks conjuncts and joined (Arabic-script) letters. */
+html[data-script]:not([data-script='latin']) { --lh-tight: 1.38; --lh-snug: 1.5; --lh-body: 1.85; --ls-display: 0; --ls-label: 0; font-synthesis-style: none; }
+html[data-script]:not([data-script='latin']) :is(*, *::before, *::after) { letter-spacing: 0 !important; }
+html[data-script='nastaliq'] { --lh-tight: 1.7; --lh-snug: 1.8; --lh-body: 2.1; }
+
+/* ---- Right-to-left text (Urdu, Kashmiri, Sindhi): the page layout stays as designed, and each block of text reads right to left. ---- */
+html[data-dir='rtl'] :is(p, h1, h2, h3, h4, h5, h6, li, dt, dd, label, figcaption, blockquote, summary, textarea, input, .mobile-nav-label, .mobile-nav-note, .lang-native) { unicode-bidi: plaintext; text-align: start; }
+
+/* 320px phones: a slightly smaller logo keeps its touch area clear of the Search button. */
+@media (max-width: 22.49rem) { .brand { font-size: 1.1875rem; } }
+
+/* The footer is always below the first screen: the browser skips drawing it until the visitor scrolls near it (faster first paint). */
+.site-footer { content-visibility: auto; contain-intrinsic-size: auto 30rem; }
+.lang-opt:active { background: var(--sand); }
+
+/* Note under the footer tagline when a language other than English is chosen. */
+.footer-autotr { margin: 0.9rem 0 0; font-size: 0.8rem; line-height: 1.5; opacity: 0.8; max-width: 38rem; }
+/* Brand name is never reshaped by script fonts or translation. */
+[data-no-translate], [translate="no"] { unicode-bidi: isolate; }

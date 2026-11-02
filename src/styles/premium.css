@@ -1,0 +1,207 @@
+/*
+ * Premium layer: shape, depth, colour smoothing and speed. Loaded after polish.css and before womens.css (the women's theme still wins).
+ * Colour: no new brand colours. Everything is a mix of the five master tokens, so tokens.css stays the only place a hex is defined.
+ * Speed: every press, hover and focus change lands in 120 to 220 ms; entrances are 350 to 550 ms and only move 12 to 14 px.
+ * Only opacity, transform and box-shadow animate. Nothing here runs under prefers-reduced-motion (base.css zeroes durations).
+ */
+
+:root {
+  /* Smoothed surfaces: cream on parchment with a faint warm lift, instead of a flat step */
+  --surface: color-mix(in srgb, var(--cream) 82%, var(--parchment));
+  --surface-hover: color-mix(in srgb, var(--cream) 92%, var(--parchment));
+  --gold-wash: color-mix(in srgb, var(--gold) 14%, var(--cream));
+  --forest-wash: color-mix(in srgb, var(--forest-deep) 6%, transparent);
+  --btn-top: color-mix(in srgb, var(--forest-deep) 86%, var(--white));
+  --btn-top-hover: color-mix(in srgb, var(--midnight) 86%, var(--white));
+  --gold-top: color-mix(in srgb, var(--gold) 82%, var(--white));
+  --ring: 0 0 0 4px color-mix(in srgb, var(--gold) 26%, transparent);
+}
+
+html { color-scheme: light; }
+body { background: var(--parchment); }
+p { text-wrap: pretty; }
+img { -webkit-user-drag: none; }
+::selection { background: color-mix(in srgb, var(--gold) 55%, var(--cream)); color: var(--midnight); }
+
+/* ---------- Buttons: soft shape, light depth, instant response ---------- */
+.btn {
+  position: relative;
+  border-radius: var(--radius);
+  border-color: color-mix(in srgb, var(--midnight) 70%, var(--forest-deep));
+  background: linear-gradient(180deg, var(--btn-top), var(--forest-deep));
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--white) 14%, transparent), 0 1px 2px rgba(9, 35, 28, 0.22), 0 8px 16px -10px rgba(9, 35, 28, 0.5);
+  letter-spacing: 0.005em;
+  -webkit-user-select: none; user-select: none;
+  transition: background-color var(--dur-2) var(--ease), background-image var(--dur-2) var(--ease), color var(--dur-2) var(--ease), border-color var(--dur-2) var(--ease), box-shadow var(--dur-2) var(--ease), transform var(--dur-1) var(--ease-out);
+}
+.btn:hover { background: linear-gradient(180deg, var(--btn-top-hover), var(--midnight)); border-color: var(--midnight); }
+.btn--ghost { background: transparent; border-color: var(--line-strong); box-shadow: none; }
+.btn--ghost:hover { background: var(--forest-deep); border-color: var(--forest-deep); }
+.btn--gold { background: linear-gradient(180deg, var(--gold-top), var(--gold)); border-color: color-mix(in srgb, var(--gold) 80%, var(--midnight)); color: var(--midnight); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--white) 35%, transparent), 0 1px 2px rgba(9, 35, 28, 0.2), var(--shadow-gold); }
+.btn--gold:hover { background: linear-gradient(180deg, color-mix(in srgb, var(--gold-light) 80%, var(--white)), var(--gold-light)); border-color: var(--gold-light); color: var(--midnight); }
+.btn--danger { background: transparent; box-shadow: none; }
+.btn--danger:hover { background: var(--bad); border-color: var(--bad); }
+.on-dark .btn:not(.btn--gold):not(.btn--ghost) { background: linear-gradient(180deg, var(--gold-top), var(--gold)); border-color: color-mix(in srgb, var(--gold) 80%, var(--midnight)); color: var(--midnight); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--white) 35%, transparent), var(--shadow-gold); }
+.on-dark .btn:not(.btn--gold):not(.btn--ghost):hover { background: linear-gradient(180deg, color-mix(in srgb, var(--gold-light) 80%, var(--white)), var(--gold-light)); border-color: var(--gold-light); }
+.on-dark .btn--ghost { box-shadow: none; }
+.btn[disabled], .btn[aria-disabled='true'] { opacity: 1; background: color-mix(in srgb, var(--forest-deep) 12%, var(--parchment)); border-color: var(--line); color: color-mix(in srgb, var(--forest-deep) 55%, var(--parchment)); box-shadow: none; }
+.on-dark .btn[disabled], .on-dark .btn[aria-disabled='true'], .buy-bar .btn[disabled], .buy-bar .btn[aria-disabled='true'] { background: rgba(255, 252, 245, 0.1); border-color: var(--line-on-dark); color: var(--faint-on-dark); }
+
+/* Same selectors as polish.css so these replace its slower, larger lift */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .btn:hover:not([disabled]):not([aria-disabled='true']) { transform: translateY(-1px); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--white) 14%, transparent), 0 2px 4px rgba(9, 35, 28, 0.2), 0 14px 22px -12px rgba(9, 35, 28, 0.55); }
+  .btn--gold:hover:not([disabled]):not([aria-disabled='true']), .on-dark .btn:not(.btn--ghost):hover:not([disabled]) { box-shadow: inset 0 1px 0 color-mix(in srgb, var(--white) 35%, transparent), 0 14px 24px -12px rgba(196, 156, 98, 0.9); }
+  .btn--ghost:hover:not([disabled]):not([aria-disabled='true']) { box-shadow: 0 10px 18px -12px rgba(9, 35, 28, 0.45); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* Press: responds on the same frame, then springs back */
+  .btn:active:not([disabled]):not([aria-disabled='true']) { transform: translateY(0) scale(0.975); box-shadow: inset 0 1px 2px rgba(9, 35, 28, 0.3); transition-duration: 0.06s; }
+  .tool:active, .menu-toggle:active, .cart-close:active, .mobile-close:active, .pchip:active, .size-option:active, .cart-step:active { transform: scale(0.95); transition-duration: 0.06s; }
+  .tool, .menu-toggle, .cart-close, .mobile-close, .pchip, .size-option, .cart-step { transition-property: background-color, color, border-color, box-shadow, transform; transition-duration: var(--dur-2); }
+}
+.link-arrow::after { transition: transform var(--dur-3) var(--ease-out); }
+.link-arrow { transition: border-color var(--dur-2) var(--ease), color var(--dur-2) var(--ease); }
+.link-arrow:hover { border-bottom-color: var(--gold-text); }
+
+/* ---------- Header: softer edge, same solid ground ---------- */
+.site-header { border-bottom-color: color-mix(in srgb, var(--forest-deep) 9%, transparent); }
+.site-header[data-scrolled='true'] { box-shadow: 0 1px 0 color-mix(in srgb, var(--forest-deep) 6%, transparent), 0 14px 28px -24px rgba(9, 35, 28, 0.6); }
+.tool:hover { background: var(--forest-wash); }
+
+/* ---------- Fields: rounded, quiet border, warm halo ---------- */
+input, textarea, select { border-radius: var(--radius); }
+.field input[type='text'], .field input[type='email'], .field input[type='search'], .field input[type='password'], .field input[type='tel'], .field input[type='number'], .field textarea, .field select, .pin input {
+  border-radius: var(--radius);
+  background: var(--cream);
+  box-shadow: inset 0 1px 2px rgba(9, 35, 28, 0.04);
+  transition: border-color var(--dur-2) var(--ease), box-shadow var(--dur-2) var(--ease), background-color var(--dur-2) var(--ease);
+}
+.field input:focus-visible, .field textarea:focus-visible, .field select:focus-visible, .pin input:focus-visible { outline: none; border-color: var(--forest-deep); box-shadow: var(--ring); }
+.field input[aria-invalid='true']:focus-visible, .field textarea[aria-invalid='true']:focus-visible, .field select[aria-invalid='true']:focus-visible { box-shadow: 0 0 0 4px color-mix(in srgb, var(--bad) 18%, transparent); }
+.on-dark .field input, .on-dark .field textarea, .on-dark .field select { box-shadow: none; }
+.on-dark .field input:focus-visible, .on-dark .field textarea:focus-visible, .on-dark .field select:focus-visible { border-color: var(--gold); box-shadow: 0 0 0 4px color-mix(in srgb, var(--gold) 22%, transparent); }
+
+/* ---------- Cards and panels: one radius, one shadow language ---------- */
+.card, .product, .ingredient { border-radius: var(--radius-md); }
+.ingredient { transition: border-color var(--dur-2) var(--ease), box-shadow var(--dur-3) var(--ease-out), transform var(--dur-3) var(--ease-out); }
+@media (hover: hover) { .ingredient:hover { box-shadow: var(--shadow-md); } }
+.pvisual { border-radius: var(--radius-md); }
+.plist-media .pvisual, .plist-row .pvisual { border-radius: var(--radius-md); }
+.pcard-media { border-radius: var(--radius-md); isolation: isolate; box-shadow: var(--shadow-sm); }
+.pcard-alt { transition-duration: 0.3s; }
+.pcard-body h3 a { transition: color var(--dur-2) var(--ease); }
+.size-option { border-radius: var(--radius); transition: border-color var(--dur-2) var(--ease), box-shadow var(--dur-2) var(--ease), background-color var(--dur-2) var(--ease), transform var(--dur-1) var(--ease-out); }
+@media (hover: hover) { .size-option:not([data-disabled='true']):hover { border-color: var(--forest-deep); background: var(--surface-hover); } }
+.size-option:has(input:checked) { background: var(--gold-wash); box-shadow: inset 0 0 0 1px var(--forest-deep); }
+.cart-stepper { border-radius: var(--radius); overflow: hidden; }
+.cart-step:hover:not(:disabled) { background: var(--forest-wash); }
+.pin, .prelaunch { border-radius: var(--radius-md); background: var(--surface); }
+.notice, .form-status { border-radius: 0 var(--radius) var(--radius) 0; }
+.cart-page .cart-summary { box-shadow: var(--shadow-sm); }
+.auth-surface { border-radius: var(--radius-md); box-shadow: var(--shadow-md); }
+.acct-pop { border-radius: var(--radius-md); box-shadow: var(--shadow-overlay); }
+.acct-pop a, .acct-pop button { border-radius: calc(var(--radius) - 2px); transition: background-color var(--dur-1) var(--ease); }
+.search-panel { border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+.cart-drawer { box-shadow: var(--shadow-overlay); }
+@media (min-width: 40rem) { .cart-drawer { border-radius: var(--radius-lg) 0 0 var(--radius-lg); } }
+.ing-list li { background: var(--surface); }
+.badge { border-color: color-mix(in srgb, var(--forest-deep) 28%, transparent); background: var(--surface); }
+.pchip { background: var(--surface); }
+.pchip:hover { background: var(--forest-wash); }
+.pchip[aria-pressed='true'] { background: linear-gradient(180deg, var(--btn-top), var(--forest-deep)); box-shadow: 0 6px 14px -10px rgba(9, 35, 28, 0.6); }
+
+/* ---------- Hero and dark bands: depth without a new colour ---------- */
+.hero { background-image: radial-gradient(75% 95% at 82% 12%, color-mix(in srgb, var(--forest-deep) 92%, var(--gold)) 0%, transparent 68%), radial-gradient(60% 70% at 4% 100%, color-mix(in srgb, var(--forest-deep) 70%, transparent) 0%, transparent 72%); }
+.hero-stamp { border-radius: var(--radius); box-shadow: var(--shadow-gold); }
+.shop-hero { background-image: radial-gradient(70% 120% at 90% 0%, color-mix(in srgb, var(--midnight) 55%, transparent) 0%, transparent 70%); }
+.buy-bar { box-shadow: 0 -12px 28px -20px rgba(9, 35, 28, 0.7); }
+
+/* ---------- Motion: shorter and lighter entrances ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal.in { animation: reveal-soft 0.55s var(--ease-out) var(--rd, 0s) backwards; }
+  .js .reveal:nth-child(2) { --rd: 0.05s; }
+  .js .reveal:nth-child(3) { --rd: 0.1s; }
+  .js .reveal:nth-child(n + 4) { --rd: 0.14s; }
+  @keyframes reveal-soft { from { opacity: 0; transform: translate3d(0, 14px, 0); } }
+  .page-enter { animation-duration: 0.2s; }
+  .search-panel { animation-duration: 0.28s; }
+  .acct-pop { animation-duration: 0.16s; }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .pcard-media { transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out); }
+  .pcard:hover .pcard-media, .pcard:focus-within .pcard-media { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .pvisual img { transition: transform 0.7s var(--ease-out); }
+}
+
+/* ---------- Quiet scrollbars on inner scrollers ---------- */
+.cart-drawer-body, .search-panel, .kai-log { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--forest-deep) 30%, transparent) transparent; }
+
+/* ---------- Free work: skip painting the footer until it is near the screen ---------- */
+.site-footer { content-visibility: auto; contain-intrinsic-size: auto 28rem; }
+
+/* ======================= Menu (mobile sheet and desktop nav) ======================= */
+
+/* Toggle: a quiet pill so it reads as a control, with two hairlines that cross cleanly */
+.menu-toggle { gap: 0.7rem; padding: 0 1rem 0 0.9rem; border: 1px solid color-mix(in srgb, var(--forest-deep) 18%, transparent); border-radius: 999px; background: var(--surface); transition: background-color var(--dur-2) var(--ease), border-color var(--dur-2) var(--ease), transform var(--dur-1) var(--ease-out); }
+.menu-toggle:hover { background: var(--surface-hover); border-color: color-mix(in srgb, var(--forest-deep) 34%, transparent); }
+.menu-toggle[aria-expanded='true'] { background: var(--forest-deep); border-color: var(--forest-deep); color: var(--cream); }
+.menu-icon { width: 1.2rem; height: 0.7rem; }
+.menu-icon i { height: 1.5px; border-radius: 2px; transition: transform var(--dur-3) var(--ease-out), top var(--dur-3) var(--ease-out); }
+@media (prefers-reduced-motion: no-preference) { .menu-toggle:active { transform: scale(0.95); transition-duration: 0.06s; } }
+
+/* Sheet: deeper ground, a gold hairline under the head, softer bottom edge */
+.mobile-menu { gap: 1rem; border-radius: 0 0 var(--radius-lg) var(--radius-lg); background: radial-gradient(110% 55% at 100% 0%, rgba(196, 156, 98, 0.2), transparent 62%), radial-gradient(90% 45% at 0% 100%, rgba(228, 200, 156, 0.08), transparent 68%), linear-gradient(180deg, var(--forest-deep), var(--midnight) 55%); }
+.mobile-menu-head { border-bottom: 0; padding-bottom: 0.9rem; background: linear-gradient(90deg, var(--gold), transparent) left bottom / 100% 1px no-repeat; }
+.mobile-menu-title { display: flex; align-items: center; gap: 0.75rem; }
+.mobile-menu-title::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--line-on-dark), transparent); }
+.mobile-close { background: rgba(255, 252, 245, 0.06); padding: 0 1.1rem; transition: background-color var(--dur-2) var(--ease), border-color var(--dur-2) var(--ease), color var(--dur-2) var(--ease), transform var(--dur-1) var(--ease-out); }
+
+/* Rows: each link is a soft target with a divider, a numbered label and a round arrow */
+.mobile-nav { margin-top: -0.25rem; gap: 0.1rem; }
+.mobile-nav a {
+  position: relative; grid-template-columns: 2rem 1fr auto; gap: 0.6rem; margin-inline: -0.75rem; padding: 0.95rem 0.75rem; border-bottom: 0; border-radius: 1rem;
+  background: linear-gradient(var(--line-on-dark), var(--line-on-dark)) center bottom / calc(100% - 1.5rem) 1px no-repeat;
+  transition: background-color var(--dur-2) var(--ease), color var(--dur-2) var(--ease), transform var(--dur-1) var(--ease-out);
+}
+.mobile-nav a:last-child { background-image: none; }
+.mobile-nav a:hover, .mobile-nav a:focus-visible { padding-left: 0.75rem; background-color: rgba(255, 252, 245, 0.06); color: var(--cream); }
+.mobile-nav a:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+.mobile-nav a:hover .mobile-nav-label { color: var(--gold-light); }
+.mobile-nav-label { transition: color var(--dur-2) var(--ease); }
+.mobile-nav-arrow { width: 2.25rem; height: 2.25rem; align-items: center; justify-content: center; border: 1px solid var(--line-on-dark); border-radius: 50%; color: var(--gold-light); opacity: 1; transition: background-color var(--dur-2) var(--ease), border-color var(--dur-2) var(--ease), transform var(--dur-2) var(--ease-out); }
+.mobile-nav-arrow svg { width: 1rem; height: 1rem; }
+.mobile-nav a:hover .mobile-nav-arrow, .mobile-nav a:focus-visible .mobile-nav-arrow { transform: translateX(3px); border-color: var(--gold); background: rgba(196, 156, 98, 0.16); }
+.mobile-nav a[aria-current='page'] { background-color: rgba(196, 156, 98, 0.12); }
+.mobile-nav a[aria-current='page']::before { content: ''; position: absolute; left: 0.2rem; top: 26%; bottom: 26%; width: 3px; border-radius: 3px; background: var(--gold); }
+.mobile-nav a[aria-current='page'] .mobile-nav-arrow { border-color: var(--gold); background: var(--gold); color: var(--midnight); }
+@media (prefers-reduced-motion: no-preference) { .mobile-nav a:active { transform: scale(0.985); transition-duration: 0.06s; background-color: rgba(255, 252, 245, 0.1); } .mobile-close:active { transform: scale(0.95); transition-duration: 0.06s; } }
+
+/* Account buttons share the site button language */
+.mobile-btn { min-height: 3.25rem; border-radius: var(--radius); border-color: color-mix(in srgb, var(--gold) 70%, transparent); transition: background-color var(--dur-2) var(--ease), color var(--dur-2) var(--ease), border-color var(--dur-2) var(--ease), transform var(--dur-1) var(--ease-out); }
+.mobile-btn--solid { background: linear-gradient(180deg, var(--gold-top), var(--gold)); border-color: color-mix(in srgb, var(--gold) 80%, var(--midnight)); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--white) 35%, transparent), var(--shadow-gold); }
+.mobile-btn--solid:hover { background: linear-gradient(180deg, color-mix(in srgb, var(--gold-light) 80%, var(--white)), var(--gold-light)); }
+@media (prefers-reduced-motion: no-preference) { .mobile-btn:active { transform: scale(0.97); transition-duration: 0.06s; } }
+.mobile-foot { border-top: 0; background: linear-gradient(90deg, var(--line-on-dark), transparent) left top / 100% 1px no-repeat; }
+
+/* Entrance: the sheet settles down 12px while the rows rise in a quick 45 ms stagger (was 0.5 s each, 60 ms steps) */
+@media (prefers-reduced-motion: no-preference) {
+  .mobile-menu[data-open='true'] { animation: menu-settle 0.3s var(--ease-out) both; }
+  .mobile-menu[data-open='true'] .mobile-nav a { animation: menu-row 0.38s var(--ease-out) both; animation-delay: 50ms; }
+  .mobile-menu[data-open='true'] .mobile-nav a:nth-child(2) { animation-delay: 95ms; }
+  .mobile-menu[data-open='true'] .mobile-nav a:nth-child(3) { animation-delay: 140ms; }
+  .mobile-menu[data-open='true'] .mobile-nav a:nth-child(4) { animation-delay: 185ms; }
+  .mobile-menu[data-open='true'] .mobile-nav a:nth-child(5) { animation-delay: 230ms; }
+  .mobile-menu[data-open='true'] .mobile-nav a:nth-child(6) { animation-delay: 275ms; }
+  .mobile-menu[data-open='true'] .mobile-account, .mobile-menu[data-open='true'] .mobile-foot { animation: menu-row 0.4s var(--ease-out) 0.3s both; }
+  @keyframes menu-settle { from { opacity: 0; transform: translate3d(0, -12px, 0); } to { opacity: 1; transform: none; } }
+  @keyframes menu-row { from { opacity: 0; transform: translate3d(0, 8px, 0); } to { opacity: 1; transform: none; } }
+}
+
+/* Desktop nav: pill hover wash, short centred gold bar for the current page */
+@media (min-width: 68rem) {
+  .nav { gap: clamp(0.15rem, 0.8vw, 0.6rem); }
+  .nav a { padding: 0.55rem 0.95rem; border-radius: 999px; letter-spacing: 0.02em; transition: background-color var(--dur-2) var(--ease), color var(--dur-2) var(--ease); }
+  .nav a:hover { background: var(--forest-wash); }
+  .nav a::after { left: 50%; right: auto; width: 1.1rem; margin-left: -0.55rem; bottom: 0.15rem; transform: scaleX(0); transform-origin: center; transition: transform var(--dur-3) var(--ease-out); }
+  .nav a[aria-current='page'] { background: none; }
+}

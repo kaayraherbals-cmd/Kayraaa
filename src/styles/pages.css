@@ -1,0 +1,50 @@
+/* Inner pages: our story, our approach, quality, product development, journal, ingredients, articles, legal, contact. */
+.page-hero { background: var(--forest-deep); color: var(--cream); padding-block: clamp(3rem, 7vw, 5.5rem); border-bottom: 1px solid var(--gold); }
+.page-hero h1 { color: var(--cream); font-size: var(--fs-h1); line-height: var(--lh-tight); }
+.page-hero .eyebrow { color: var(--gold); }
+.page-hero .lede { margin-top: 1.5rem; color: var(--muted-on-dark); }
+.page-hero-grid { display: grid; gap: clamp(2rem, 6vw, 4rem); align-items: center; }
+.page-hero .art-frame { aspect-ratio: 4 / 5; max-width: 26rem; border-radius: 999px 999px 0 0; background: var(--forest-deep); border: 1px solid rgba(196, 156, 98, 0.55); padding: 2rem 1.5rem 1rem; }
+.page-hero .art-caption { color: var(--muted-on-dark); }
+@media (min-width: 56rem) { .page-hero-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); } }
+
+.prose { max-width: 44rem; }
+.prose h2 { font-size: var(--fs-h2); margin: 2.25rem 0 0.75rem; }
+.prose p, .prose li { color: #34443b; }
+.article h1 { font-size: var(--fs-h1); margin-bottom: 1rem; }
+.article { max-width: 46rem; }
+
+.journal-grid { display: grid; gap: clamp(2rem, 4vw, 3rem); }
+@media (min-width: 48rem) { .journal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.post { padding-top: 1.25rem; border-top: 1px solid var(--line-strong); }
+.post time { display: block; margin-bottom: 0.6rem; font-size: var(--fs-small); font-weight: var(--fw-medium); color: var(--gold-text); }
+.post h2 a { color: var(--forest-deep); text-decoration: none; }
+.post h2 a:hover { color: var(--gold-text); }
+.post p { color: var(--muted); }
+
+/* Utility classes that replace former inline style attributes (SEO audit: remove inline styles). Loaded last so they win like inline styles did. */
+.mt-15 { margin-top: 1.5rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-25 { margin-top: 2.5rem; }
+.fs-17 { font-size: 1.7rem; }
+.fs-16 { font-size: 1.6rem; }
+.h1-fluid { font-size: clamp(2.5rem, 6vw, 4rem); }
+.my-15-2 { margin: 1.5rem 0 2rem; }
+.pad-2 { padding: 2rem; }
+.num-brass { color: var(--brass-text); margin-right: 0.75rem; }
+.fig-flush { margin: 0; }
+.bt-d0{--d:0}.bt-d1{--d:1}.bt-d2{--d:2}.bt-d3{--d:3}.bt-d4{--d:4}.bt-d5{--d:5}.bt-d6{--d:6}.bt-d7{--d:7}.bt-d8{--d:8}.bt-d9{--d:9}.bt-d10{--d:10}.bt-d11{--d:11}.bt-d12{--d:12}
+.mobile-nav a:nth-child(1){--i:0}.mobile-nav a:nth-child(2){--i:1}.mobile-nav a:nth-child(3){--i:2}.mobile-nav a:nth-child(4){--i:3}.mobile-nav a:nth-child(5){--i:4}.mobile-nav a:nth-child(6){--i:5}.mobile-nav a:nth-child(7){--i:6}.mobile-nav a:nth-child(8){--i:7}
+.email-reveal { display: inline-flex; align-items: center; gap: 0.65rem; min-height: var(--tap); padding: 0; border: 0; background: none; font: inherit; font-size: var(--fs-small); font-weight: var(--fw-medium); color: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 0.25em; }
+.founder-links .email-reveal { color: var(--forest-deep); text-decoration: none; }
+.founder-links .email-reveal:hover span { text-decoration: underline; text-underline-offset: 0.25em; }
+.founder-links .email-reveal svg { flex: none; width: 1.15rem; height: 1.15rem; color: var(--gold-text); }
+.faq { display: grid; gap: 1.5rem 3rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); margin-top: 2rem; }
+.faq h3 { font-size: 1.25rem; margin: 0 0 0.4rem; }
+.faq p { margin: 0; }
+
+/* Legal page: business details list */
+.prose-facts { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1.25rem; margin: 0 0 1.5rem; }
+.prose-facts dt { font-weight: var(--fw-semibold); }
+.prose-facts dd { margin: 0; overflow-wrap: anywhere; }
+@media (max-width: 36rem) { .prose-facts { grid-template-columns: 1fr; gap: 0; } .prose-facts dd { margin-bottom: 0.6rem; } }

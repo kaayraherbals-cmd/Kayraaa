@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" role="img" aria-label="Syrup bottle: 200 ml">
+<title>Syrup bottle: 200 ml</title><desc>Container silhouette with label area. Not to scale. Layout zones only. No composition, licence or warning text has been written: these must come from approved sources.</desc>
+<rect width="360" height="360" fill="#fff"/>
+<text x="16" y="24" font-family="Cormorant Garamond, Georgia, serif" font-size="20" fill="#173A2D">Syrup bottle: 200 ml</text>
+<text x="16" y="42" font-family="Manrope, Arial, sans-serif" font-size="10" fill="#252B27">Container silhouette with label area. Not to scale.</text>
+<g transform="translate(0,52)"><g stroke="#173A2D" stroke-width="1.6" fill="#F7F5EF" stroke-linejoin="round">
+<rect x="150" y="0" width="60" height="30" rx="5" fill="#173A2D"/>
+<path d="M158 30v26c0 14-48 20-48 52v110a16 16 0 0 0 16 16h108a16 16 0 0 0 16-16V108c0-32-48-38-48-52V30"/></g>
+<rect x="124" y="118" width="112" height="104" rx="3" fill="#A9BBA655" stroke="#A88452" stroke-dasharray="4 3"/>
+<text x="180" y="174.0" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="10" fill="#A88452">LABEL AREA</text></g>
+<rect x="0" y="334" width="360" height="26" fill="#A88452"/><text x="180.0" y="351" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#F7F5EF">CONCEPT — NOT FOR COMMERCIAL USE</text>
+</svg>
